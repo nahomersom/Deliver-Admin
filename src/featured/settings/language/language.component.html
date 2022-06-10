@@ -1,0 +1,59 @@
+<div class="card">
+    <div class="card-content">
+      <form [formGroup]="formGroup" ngOnSubmit="Submit()">
+        <div class="row">
+          <div class="mb-4 col-md-12 col-sm-12 col-xs-12">
+              <div class="form-group">
+                <ejs-dropdownlist
+                  cssClass="e-outline"
+                  placeholder="Select language to load keys"
+                  formControlName="language"
+                  [dataSource]="languages"
+                  [fields]="fields"
+                  floatLabelType="Never"
+                  (change)=load_keys($event.itemData?.value)
+                  [ngClass]="{
+                    'invalid': crudService.getControl(
+                      formGroup,
+                      'language'
+                    ).invalid,
+                    'valid': crudService.getControl(
+                      formGroup,
+                      'language'
+                    ).valid
+                  }"
+                ></ejs-dropdownlist>
+              </div>
+            </div>
+            <div class="mb-4 col-md-12 col-sm-12 col-xs-12 " formArrayName="keys" >
+              <div class="row" *ngIf="GA().length">
+                <div class="col-md-4 col-sm-12 col-xs-12" *ngFor="let opt of GA().controls; let i = index;" [formGroupName]="i">
+                  <span class="text"><b>{{ GG(i).get('key').value | uppercase }}</b><small class="astriks">*</small></span><br />
+                  <div class="e-input-group">
+                    <input
+                      class="e-input"
+                      name="input"
+                    
+                      formControlName="value"
+                      type="text"
+                      [ngClass]="{
+                        invalid:  GG(i).get('value').invalid,
+                        valid: GG(i).get('value').valid
+                      }"
+                    
+                      [placeholder]="selectedLanguage"
+                    />
+                  </div>
+                  <span *ngIf="formSubmitted && GG(i).get('value').hasError('required')" class="error">
+                    <small> * required</small>
+                  </span>
+                </div>
+              </div>
+            </div>
+        <hr/>
+        <app-form-buttons (submit)="Submit($event)" style="margin-left: 20px !important;"></app-form-buttons>
+        <br />
+  
+    </div>
+  </form>
+  </div>

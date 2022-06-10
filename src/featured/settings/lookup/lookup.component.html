@@ -1,0 +1,70 @@
+<div class="card">
+  <div class="card-content">
+    <form [formGroup]="lookupGroup">
+      <div class="row">
+          <div class="mb-4 col-md-6 col-sm-12 col-xs-12">
+              <label>Category<small class="astriks">*</small></label>
+              <ejs-dropdownlist
+              [ngClass]="{
+                'invalid': crudService.getControl(
+                  lookupGroup,
+                  'lookup_type'
+                ).invalid && formSubmitted,
+                'valid': crudService.getControl(
+                  lookupGroup,
+                  'lookup_type'
+                ).valid
+              }"
+              cssClass="e-outline"
+              placeholder="Lookup Type"
+              formControlName="lookup_type"
+              [dataSource]="lookup_types"
+              [fields]="fields"
+              floatLabelType="Never"
+              (change)=load_parents($event.itemData?.value,$event.itemData?.parent_type)
+              > </ejs-dropdownlist>
+            </div>
+            <div class="mb-4 col-md-6 col-sm-12 col-xs-12">
+              <label>Value<small class="astriks">*</small></label>
+              <div class="e-input-group">
+                <input
+                [ngClass]="{
+                  'invalid': crudService.getControl(
+                    lookupGroup,
+                    'value'
+                  ).invalid && formSubmitted,
+                  'valid': crudService.getControl(
+                    lookupGroup,
+                    'value'
+                  ).valid
+                }"
+                  class="e-input"
+                  name="input"
+                  type="text"
+                  placeholder="Value"
+                  formControlName="value"
+                />
+              </div>
+            </div>
+            <div class="mb-4 col-md-6 col-sm-12 col-xs-12">
+              <label>Parent</label>
+              <ejs-dropdownlist
+              placeholder="select parent"
+              formControlName="parent_id"
+              floatLabelType="Never"
+              [fields]="fields"
+              [dataSource]="parents"
+              > 
+            </ejs-dropdownlist>
+            </div>
+
+      <hr />
+      <app-form-buttons
+        (submit)="Submit($event)"
+        style="margin-left: 20px !important"
+      ></app-form-buttons>
+
+      </div>
+    </form>
+  </div>
+</div>

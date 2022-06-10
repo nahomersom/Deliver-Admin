@@ -1,0 +1,85 @@
+{
+    "formPath": "ws/user-and-group/user",
+    "dataApi": "user/system",
+    "deleteRowApi": "user/system/delete",
+    "pageName": "System",
+    "grouped": false,
+    "groupBy": [],
+    "showSearch": true,
+    "incomingCommand": [],
+    "showCollapseAndExpand": true,
+    "allowToolbar": true,
+    "showExcelExport": false,
+    "showPdfExport": false,
+    "showColumnChooser": true,
+    "showFilter": true,
+    "allowCheckbox": true,
+    "image_url": null,
+    "columns": [
+ 
+        {
+            "field": "full_name",
+            "headerText": "Full Name",
+            "textAlign": "left",
+            "width": 120,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "email",
+            "headerText": "Email",
+            "textAlign": "left",
+            "width": 100,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "phone_number",
+            "headerText": "Phone",
+            "textAlign": "left",
+            "width": 50,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "region",
+            "headerText": "Region",
+            "textAlign": "left",
+            "width": 70,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "city",
+            "headerText": "City",
+            "textAlign": "left",
+            "width": 70,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "sub_city",
+            "headerText": "Sub City",
+            "textAlign": "left",
+            "width": 70,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "wereda",
+            "headerText": "Wereda",
+            "textAlign": "left",
+            "width": 50,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "group",
+            "headerText": "Group",
+            "textAlign": "left",
+            "width": 80,
+            "visible": true,
+            "asCheckbox": false
+        }
+    ]
+}

@@ -1,0 +1,35 @@
+{
+    "formPath": "ws/user-and-group/group",
+    "dataApi": "user/group/list",
+    "deleteRowApi": "user/group/delete",
+    "pageName": "Group",
+    "grouped": false,
+    "groupBy": [],
+    "showSearch": true,
+    "incomingCommand": [],
+    "showCollapseAndExpand": true,
+    "allowToolbar": true,
+    "showExcelExport": true,
+    "showPdfExport": true,
+    "showColumnChooser": true,
+"showFilter": true,
+    "allowCheckbox": true,
+    "image_url": null,
+    "method": "post",
+    "columns": [
+        {
+            "field": "title",
+            "headerText": "Title",
+            "textAlign": "left",
+            "width": 100,
+            "visible": true
+        },
+        {
+            "field": "for",
+            "headerText": "For",
+            "textAlign": "left",
+            "width": 100,
+            "visible": true
+        }
+    ]
+}

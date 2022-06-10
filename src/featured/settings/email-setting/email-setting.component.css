@@ -1,0 +1,109 @@
+.card{
+    margin-top: 20px;
+  }
+  @media only screen and (max-width: 768px) {
+    .e-tab {
+      width: 350px !important;
+      min-height: 400px !important;
+    }
+  }
+  @media only screen and (min-width: 1025px) {
+    .e-tab
+      .e-tab-header
+      .e-toolbar-items:not(.e-tbar-pos)
+      .e-toolbar-item:last-child {
+      margin: 0;
+      width: 1400px !important;
+      padding-bottom: 0;
+    }
+  
+  } 
+  label{
+    font-size:12px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color:grey;
+  }
+  
+  .row {
+    margin: 15px;
+  }
+ 
+  h6{
+    /* font-size:12px; */
+    font-weight: bold;
+    margin-bottom: 10px;
+    color:grey;
+  }
+
+  .e-tab {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    /* background-clip: border-box;
+    border: 1px solid rgba(0,0,0,.125); */
+    border-radius: .25rem;
+    /* min-width: 1500px !important;
+    min-height: 600px !important; */
+}
+.e-tab .e-content > .e-item.e-active {
+  background: inherit;
+  display: block;
+  padding: 25px;
+}
+
+.icon{
+  color: #778bfd !important;
+  font-size: 16px !important;
+  cursor: pointer !important;
+}
+
+.text{
+  color: gray !important;
+  font-size: 16px !important;
+}
+
+.list-group-item{
+  padding: 0px !important;
+}
+
+.no-item{
+  text-align: center !important;
+  padding: 0px !important;
+  font-size: 20px !important;
+}
+
+.has-item{
+  overflow: scroll !important;
+  margin-bottom: 10px !important;
+  max-height: 500px !important;
+
+}
+
+.has-item::-webkit-scrollbar {
+  display: none;
+}
+
+.right{
+  margin-right: 28px !important;
+}
+.astriks{
+  color: red !important;
+  margin-left: 10px !important;
+}
+/* for TextBox */
+input.ng-invalid {
+  border: 1px solid red !important;
+}
+input.ng-valid {
+  border: 1px solid  #CED4DA !important;
+}
+.e-tab .e-tab-header .e-toolbar-item .e-tab-wrap {
+  border-radius: 4px;
+  color: #778bfd;
+  border: 1px solid transparent;
+}
+

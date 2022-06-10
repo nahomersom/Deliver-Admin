@@ -1,0 +1,181 @@
+<ejs-tab id="element">
+  <form [formGroup]="EmailSettingGroup">
+  <e-tabitems>
+    <e-tabitem>
+        <ng-template #headerText>
+            <div> Email Configuration </div>
+        </ng-template>
+        <p></p>
+        <ng-template #content class="content">
+              <div class="row mb-4">
+          
+                <div  class="mb-4 col-md-6 col-sm-12 col-xs-12">
+                  <label>Protocol<small class="astriks">*</small></label>
+                  <div class="e-input-group" formGroupName="email">
+                    <input class="e-input" name='input'   formControlName="protocol" type="text" [ngClass]="{
+                      'invalid': crudService.getControl(
+                        EmailSettingGroup,
+                        'email.protocol'
+                      ).invalid,
+                      'valid': crudService.getControl(
+                        EmailSettingGroup,
+                        'email.protocol'
+                      ).valid
+                    }"
+                    placeholder="Protocol"/>
+                
+                    </div>
+       
+                </div>
+                <div  class="mb-4 col-md-6 col-sm-12 col-xs-12">
+                  <label>Host<small class="astriks">*</small></label>
+                  <div class="e-input-group" formGroupName="email">
+                    <input class="e-input" name='input'   formControlName="host" type="text" [ngClass]="{
+                      'invalid': crudService.getControl(
+                        EmailSettingGroup,
+                        'email.host'
+                      ).invalid,
+                      'valid': crudService.getControl(
+                        EmailSettingGroup,
+                        'email.host'
+                      ).valid
+                    }"
+                    placeholder="Host"/>
+                
+                    </div>
+               
+                </div>
+          
+                <div  class="mb-4 col-md-6 col-sm-12 col-xs-12">
+                  <label>Port<small class="astriks">*</small></label>
+                  <div class="e-input-group" formGroupName="email">
+                    <input class="e-input" name='input'   formControlName="port" type="text" [ngClass]="{
+                      'invalid': crudService.getControl(
+                        EmailSettingGroup,
+                        'email.port'
+                      ).invalid,
+                      'valid': crudService.getControl(
+                        EmailSettingGroup,
+                        'email.port'
+                      ).valid
+                    }"
+                    placeholder="Port"/>
+                
+                    </div>
+     
+                </div>
+                <div  class="mb-4 col-md-6 col-sm-12 col-xs-12">
+                  <label>Email<small class="astriks">*</small></label>
+                    <div class="form-group">
+                      <div class="e-input-group" formGroupName="email">
+                        <input class="e-input" name='input'   formControlName="email" type="text" [ngClass]="{
+                          'invalid': crudService.getControl(
+                            EmailSettingGroup,
+                            'email.email'
+                          ).invalid,
+                          'valid': crudService.getControl(
+                            EmailSettingGroup,
+                            'email.email'
+                          ).valid
+                        }"
+                        placeholder="Email"/>
+                    
+                        </div>
+
+                      <!-- <span class="e-error" *ngIf="formSubmitted && EmailSettingGroup.controls.email.hasError('email')">
+                        <span class="validation-error">*Invalid Email*</span>
+                      </span> -->
+                    </div>
+                </div>
+              
+                <div  class="mb-4 col-md-6 col-sm-12 col-xs-12">
+                  <label>Password<small class="astriks">*</small></label>
+                  <div class="form-group">
+                    <div class="e-input-group" formGroupName="email">
+                      <input class="e-input" name='input'   formControlName="password" type="password" [ngClass]="{
+                        'invalid': crudService.getControl(
+                          EmailSettingGroup,
+                          'email.password'
+                        ).invalid,
+                        'valid': crudService.getControl(
+                          EmailSettingGroup,
+                          'email.password'
+                        ).valid
+                      }"
+                      placeholder="Password"/>
+                  
+                      </div>
+
+                    <!-- <span class="e-error" *ngIf="formSubmitted && EmailSettingGroup.controls.password.hasError('minlength')">
+                        <span class="validation-error">*Your password must be at least 5 characters long*</span>
+                        </span> -->
+                  </div>
+                </div>
+              
+                <h6 class="mb-4">General</h6>
+                <div  class="mb-4 col-md-6 col-sm-12 col-xs-12">
+                  <label>Minimum Km<small class="astriks">*</small></label>
+                  <div class="e-input-group" formGroupName="other">
+                    <input class="e-input" name='input' formControlName="minimum_km" type="text" [ngClass]="{
+                      'invalid': crudService.getControl(
+                        EmailSettingGroup,
+                        'other.minimum_km'
+                      ).invalid,
+                      'valid': crudService.getControl(
+                        EmailSettingGroup,
+                        'other.minimum_km'
+                      ).valid
+                    }"
+                    placeholder="Minimum kilometer"/>
+                
+                    </div>
+           
+                </div>
+              </div>
+              <hr />
+              <app-form-buttons (submit)="Submit($event)" style="margin-left: 20px !important;"></app-form-buttons>
+              <br />
+        </ng-template>
+    </e-tabitem>
+    <e-tabitem>
+        <ng-template #headerText>
+            <div> Default Language Keys (English) </div>
+        </ng-template>
+        <ng-template #content class="content">
+          <div class="mb-3">
+            <input type="search" class="form-control" (keypress)="onKeyEnter($event)" formControlName="key"
+             placeholder="type and press enter key to add ...">
+          </div>
+          <ul class="list-group has-item" *ngIf="GA().length">
+            <li class="list-group-item" *ngFor="let opt of GA().controls; let i = index;">
+              <div class="row">
+                <div class="col-md-11 col-sm-11 col-xs-11">
+                  <span class="text right"><b>{{ i + 1 }}</b></span>
+                  <span class="text">{{ GG(i).get('key').value }}</span>
+                </div>
+                <div class="col-md-1 col-sm-1 col-xs-1">
+                  <span class="right">
+                    <i class="icon fas fa-edit mr-4" (click)="edit(i)"></i>
+                  </span>
+                  <span>
+                    <i class="icon far fa-trash-alt" (click)="remove(i,GG(i).get('id').value)"></i>
+                  </span>
+                </div>
+               
+              </div>
+            </li>
+          </ul>
+          <ul class="list-group" *ngIf="!GA().length">
+            <li class="list-group-item no-item">
+              <label>No key record found. please add one or more.</label>
+            </li>
+          </ul>
+          <hr />
+          <app-form-buttons (submit)="Submit($event)" [showSaveNew]="false" style="margin-left: 20px !important;"></app-form-buttons>
+          <br />
+        </ng-template>
+    </e-tabitem>
+  </e-tabitems>
+</form>
+</ejs-tab>
+

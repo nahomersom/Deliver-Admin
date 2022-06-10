@@ -1,0 +1,351 @@
+<div class="container">
+  <div class="col-lg-11 col-md-9 col-sm-9 col-12">
+   
+      <div class="card">
+
+        <div class="card-content">
+          <form [formGroup]="vehicleTypeForm">
+   
+            
+ 
+        <div class="row">
+            <div class="col-9">
+              <div class="row">
+            <div class="mb-4 col-md-6 col-sm-12 col-12">
+              <div class="form-group">
+                <label for="start">Title<small class="astriks">*</small></label>
+                <div class="e-input-group" [ngClass]="{
+                  'invalidTitle': service.getControl(
+                    vehicleTypeForm,
+                    'title'
+                  ).invalid,
+                  'validTitle': service.getControl(
+                    vehicleTypeForm,
+                    'title'
+                  ).valid
+                }">
+                  <input class="e-input" name='input' formControlName="title" type="text" 
+               
+                  placeholder="Title"/>
+              
+                  </div>                
+                <span
+                  class="e-error"
+                  *ngIf="
+                    formSubmitted &&
+                    service.getControl(vehicleTypeForm, 'title')
+                      .hasError('required')
+                  "
+                >
+                
+                </span> 
+              </div>
+            </div>
+            <div class="mb-4 col-md-6 col-sm-12 col-12">
+              <div class="form-group">
+                <label class="price" for="start">Parent Type<small class="astriks">*</small></label>
+                <ejs-dropdownlist
+                  [dataSource]="lookup_data['vehicle_parent_type']"
+                  [fields]="fields"
+                  cssClass="e-outline"
+                  formControlName="parent_type"
+                  placeholder="Parent"
+                  floatLabelType="Never"
+                  [ngClass]="{
+                    'invalid':service.getControl(
+                         vehicleTypeForm,
+                         'parent_type'
+                    ).invalid,
+                    'valid':service.getControl(
+                      vehicleTypeForm,
+                      'parent_type'
+                 ).valid
+                  }"
+                ></ejs-dropdownlist>
+        
+              </div>
+            </div>
+            <div class="mb-4 col-md-6 col-sm-12 col-xs-12">
+              <div class="form-group">
+                <label class="price" for="start">Number of Seat<small class="astriks">*</small></label>
+                <ejs-numerictextbox
+                  cssClass="e-outline"
+                  formControlName="number_of_seat"
+                  placeholder="Number of Seat"
+                  min="1"
+                  floatLabelType="Never"
+                  [ngClass]="{
+                    'invalid':service.getControl(
+                         vehicleTypeForm,
+                         'number_of_seat'
+                    ).invalid,
+                    'valid':service.getControl(
+                      vehicleTypeForm,
+                      'number_of_seat'
+                 ).valid
+                  }"
+                ></ejs-numerictextbox>
+         
+              </div>
+            </div>
+            <div class="mb-4 col-md-6 col-sm-12 col-12">
+              <div class="form-group">
+                <label for="start" class="price">Initial Price<small class="astriks">*</small></label>
+                <ejs-numerictextbox
+                  cssClass="e-outline"
+                  formControlName="initial_price"
+                  placeholder="price"
+                  min="1"
+                  [ngClass]="{
+                    'invalid':service.getControl(
+                         vehicleTypeForm,
+                         'initial_price'
+                    ).invalid,
+                    'valid':service.getControl(
+                      vehicleTypeForm,
+                      'initial_price'
+                 ).valid
+                  }"
+                  floatLabelType="Never"
+                ></ejs-numerictextbox>
+            
+              </div>
+            </div>
+            <div class="mb-4 col-md-6 col-sm-12 col-12">
+              <div class="form-group" formGroupName="detail">
+                <label for="start" class="price"
+                  >PRICE PER KILOMETER (KM)<small class="astriks">*</small></label
+                >
+                <ejs-numerictextbox
+                  cssClass="e-outline"
+                  formControlName="price_per_km"
+                  placeholder="price"
+                  min="1"
+                  floatLabelType="Never"
+                  [ngClass]="{
+                    'invalid':service.getControl(
+                         vehicleTypeForm,
+                         'detail.price_per_km'
+                    ).invalid,
+                    'valid':service.getControl(
+                      vehicleTypeForm,
+                      'detail.price_per_km'
+                 ).valid
+                  }"
+                ></ejs-numerictextbox>
+                <!-- <span
+                  class="e-error"
+                  *ngIf="
+                    formSubmitted &&
+                    service
+                      .service.getControl(vehicleTypeForm, 'price_per_km')
+                      .hasError('required')
+                  "
+                >
+                  <span class="validation-error">*required*</span>
+                </span> -->
+              </div>
+            </div>
+            <div class="mb-4 col-md-6 col-sm-12 col-12">
+              <div class="form-group" formGroupName="detail">
+                <label class="price" for="start">PRICE PER KILOGRAM (KG)<small class="astriks">*</small></label>
+                <ejs-numerictextbox
+                  cssClass="e-outline"
+                  formControlName="price_per_kg"
+                  placeholder="price"
+                  min="1"
+                  floatLabelType="Never"
+                  [ngClass]="{
+                    'invalid':service.getControl(
+                         vehicleTypeForm,
+                         'detail.price_per_kg'
+                    ).invalid,
+                    'valid':service.getControl(
+                      vehicleTypeForm,
+                      'detail.price_per_kg'
+                 ).valid
+                  }"
+                ></ejs-numerictextbox>
+           
+              </div>
+            </div>
+     
+       
+        
+ 
+      
+            <div class="mb-4 col-md-6 col-sm-12 col-12">
+              <div class="form-group" formGroupName="detail">
+                <label class="price" for="start">Price per minute<small class="astriks">*</small></label>
+                <ejs-numerictextbox
+                  cssClass="e-outline"
+                  formControlName="price_per_minute"
+                  placeholder="price"
+                  min="1"
+                  floatLabelType="Never"
+                  [ngClass]="{
+                    'invalid':service.getControl(
+                         vehicleTypeForm,
+                         'detail.price_per_minute'
+                    ).invalid,
+                    'valid':service.getControl(
+                      vehicleTypeForm,
+                      'detail.price_per_minute'
+                 ).valid
+                  }"
+                ></ejs-numerictextbox>
+          
+              </div>
+            </div>
+            
+
+      <div class="mb-4 col-md-6 col-sm-12 col-xs-12">
+        <div class="form-group" formGroupName="detail">
+          <label for="start" class="price"
+            >Price Per Kilometer (KM) During (Night)<small class="astriks">*</small></label
+          >
+          <ejs-numerictextbox
+            cssClass="e-outline"
+            formControlName="price_per_km_night"
+            placeholder="enter price here"
+            min="1"
+            floatLabelType="Never"
+            [ngClass]="{
+              'invalid':service.getControl(
+                   vehicleTypeForm,
+                   'detail.price_per_km_night'
+              ).invalid,
+              'valid':service.getControl(
+                vehicleTypeForm,
+                'detail.price_per_km_night'
+           ).valid
+            }"
+          ></ejs-numerictextbox>
+      
+        </div>
+      </div>
+      <div class="mb-4 col-md-6 col-sm-12 col-xs-12">
+        <div class="form-group" formGroupName="detail">
+          <label class="price" for="start">Price Per Kilograme (KG) During (Night)<small class="astriks">*</small></label>
+          <ejs-numerictextbox
+            cssClass="e-outline"
+            formControlName="price_per_kg_night"
+            placeholder="enter price here"
+            min="1"
+            floatLabelType="Never"
+            [ngClass]="{
+              'invalid':service.getControl(
+                   vehicleTypeForm,
+                   'detail.price_per_kg_night'
+              ).invalid,
+              'valid':service.getControl(
+                vehicleTypeForm,
+                'detail.price_per_kg_night'
+           ).valid
+            }"
+          ></ejs-numerictextbox>
+       
+        </div>
+      </div>
+      <div class="mb-4 col-md-6 col-sm-12 col-xs-12">
+        <div class="form-group" formGroupName="detail">
+          <label class="price" for="start">Price Per Minutes During (Night)<small class="astriks">*</small></label>
+          <ejs-numerictextbox
+            cssClass="e-outline"
+            formControlName="price_per_minute_night"
+            placeholder="enter price here"
+            min="1"
+            floatLabelType="Never"
+            [ngClass]="{
+              'invalid':service.getControl(
+                   vehicleTypeForm,
+                   'detail.price_per_minute_night'
+              ).invalid,
+              'valid':service.getControl(
+                vehicleTypeForm,
+                'detail.price_per_minute_night'
+           ).valid
+            }"
+          ></ejs-numerictextbox>
+   
+        </div>
+      </div>
+ 
+            <div class="col-md-12 col-sm-12 col-12 mb-4">
+              <div class="form-group">
+                <label for="start">Description</label>
+                <ejs-textbox
+                  cssClass="e-outline"
+                  formControlName="description"
+                  placeholder="Description"
+                  multiline="true"
+                  floatLabelType="Never"
+                ></ejs-textbox>
+              </div>
+   
+
+            <div class="col-md-3 col-sm-3 col-12">
+              <div class="form-group">
+                <label for="start">Status<small class="astriks">*</small></label>
+                <br />
+
+                <ejs-checkbox label="Activation" formControlName="status">
+                </ejs-checkbox>
+              </div>
+            </div>
+          </div>
+          </div>
+          </div>
+          <div class="col-3">
+            <div class="row">
+              <div class="col-3">
+            <div class="wrap">
+              <span *ngIf="image">
+                <img [src]="image" id="main-profile-img" />
+              </span>
+
+              <span *ngIf="!image">
+                <i
+                  class="fa fa-car fa-5x"
+                  aria-hidden="true"
+                  id="main-profile-img"
+                ></i>
+              </span>
+              <button id="delete" (click)="onTrash()">
+                <i class="fa fa-trash"></i>
+              </button>
+              <button class="e-btn e-control" id="browse">
+                <i class="fa fa-edit"></i>
+              </button>
+            </div>
+
+            <ejs-uploader
+              #file
+              allowedExtensions="image/*"
+              minFi1eSize="10000"
+              maxFileSize="1500000"
+              [showFileList]="false"
+              [autoUpload]="false"
+              (change)="convert_from_base64(this,file?.filesData[0],'image','vehicleTypeForm')"
+              multiple="false"
+            ></ejs-uploader>
+          </div>
+        </div>
+          <span
+            class="e-error"
+            id="photo-error"
+            *ngIf="formSubmitted && !image"
+          >
+            <span class="validation-error">*photo required*</span>
+          </span>
+          </div>
+       
+      </div>
+
+
+    <hr />
+    <app-form-buttons (submit)="Submit($event)" style="margin-left: 20px !important;"></app-form-buttons>
+    <br />
+    
+  </form>
+  </div>

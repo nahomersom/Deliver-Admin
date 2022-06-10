@@ -1,0 +1,84 @@
+{
+    "formPath": "ws/vehicle-and-driver/vehicle-type",
+    "dataApi": "vehicle/type",
+    "deleteRowApi": "vehicle/type/delete",
+    "pageName": "Type",
+    "grouped": false,
+    "groupBy": [],
+    "showSearch": true,
+    "incomingCommand": [],
+    "showCollapseAndExpand": true,
+    "allowToolbar": true,
+    "showExcelExport": true,
+    "showPdfExport": true,
+    "showColumnChooser": true,
+    "showFilter": true,
+    "allowCheckbox": true,
+    "image_url": "uploads/vehicle/type/",
+    "columns": [
+        {
+            "field": "parent_type",
+            "headerText": "Parent",
+            "textAlign": "left",
+            "width": 70,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "title",
+            "headerText": "Title",
+            "textAlign": "left",
+            "width": 150,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "price_per_km",
+            "headerText": "Price per KM",
+            "textAlign": "right",
+            "format":"N",
+            "type":"number",
+            "width": 100,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "price_per_kg",
+            "headerText": "Price Per KG",
+            "textAlign": "right",
+            "format":"N",
+            "type":"number",
+            "width": 100,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "price_per_minute",
+            "headerText": "Price Per Minutes",
+            "textAlign": "right",
+            "format":"N",
+            "type":"number",
+            "width": 100,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "initial_price",
+            "headerText": "Initial Price",
+            "textAlign": "right",
+            "format":"N",
+            "type":"number",
+            "width": 100,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "status",
+            "headerText": "Status",
+            "textAlign": "center",
+            "width": 50,
+            "visible": true,
+            "asCheckbox": true
+        }
+    ]
+}

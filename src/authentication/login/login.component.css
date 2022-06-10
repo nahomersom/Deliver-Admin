@@ -1,0 +1,62 @@
+
+.e-card {
+   
+  width: 375px;
+
+  border-radius: 5px;
+}
+.card-header {
+  background-color:#778bfd;
+  color: #758afd;
+  text-align: center;
+}
+.brand h3 {
+  display: inline-block;
+}
+.easy {
+  color: #fff;
+}
+.delivery {
+  color: #fff;
+}
+#password {
+  margin-top: 15px;
+}
+a {
+    color:#778bfd;
+  text-decoration: none;
+}
+#fp {
+  text-align: right;
+}
+.e-custom {
+  width: 100%;
+  margin-top: 20px;
+  background-color: rgb(95, 758afd, 206);
+  color: white;
+  border-color: transparent !important;
+}
+.forget .col-sm-6 p{
+    font-size:2px;
+}
+.e-custom{
+    /* background-color: #38a2f6; */
+  background-color:#778bfd;
+}
+.login {
+  cursor: pointer;
+  color: #778bfd;
+  /* 1color:#778bfd; */
+  border-color: transparent !important;
+
+}
+
+.fa-user-circle{
+color:white !important;
+/* color:#778bfd; */
+}
+.e-checkbox-wrapper .e-frame.e-check, .e-css.e-checkbox-wrapper .e-frame.e-check {
+background-color: #778bfd;
+border-color: #778bfd;
+color: #fff;
+}

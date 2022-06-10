@@ -1,0 +1,44 @@
+/* You can add global styles to this file, and also import other style files */
+
+@import '../node_modules/@syncfusion/ej2-base/styles/material.css';  
+@import '../node_modules/@syncfusion/ej2-layouts/styles/material.css';  
+@import '../node_modules/@syncfusion/ej2-navigations/styles/material.css';
+@import '../node_modules/@syncfusion/ej2-buttons/styles/material.css';  
+@import '../node_modules/@syncfusion/ej2-popups/styles/material.css';  
+@import '~ngx-toastr/toastr';
+@import "../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css";
+
+@import "../node_modules/@syncfusion/ej2-base/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-buttons/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-popups/styles/material.css";
+@import "../node_modules/@syncfusion/ej2-splitbuttons/styles/material.css";
+
+.e-spinner-pane .e-spinner-inner .e-spin-bootstrap {
+    fill: #221fcf !important;
+    stroke: #1f1cb8 !important;
+    height: 60px !important;
+    width: 60px !important;
+}
+
+.e-movablecontent {
+    height: 500px !important;
+}
+
+.e-control.e-grid.e-lib.e-grid-min-height.e-responsive.e-default.e-droppable.e-bothlines.e-tooltip.e-keyboard > .e-gridcontent.e-responsive-header > .e-content {
+  display: block !important;
+}
+
+.e-rowcell.e-valuescontent {
+    text-align: left !important;
+}
+
+.e-control.e-grid .e-create::before {
+  content: "\e759" !important;
+}
+
+.e-control.e-grid .e-view::before {
+  content: "\e787" !important;
+}
+
+html, body { height: 100%; }
+body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }

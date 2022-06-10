@@ -1,0 +1,76 @@
+{
+    "formPath": "ws/user-and-group/merchant",
+    "dataApi": "user/merchant",
+    "deleteRowApi": "user/merchant/delete",
+    "pageName": "Merchant",
+    "grouped": false,
+    "groupBy": [],
+    "showSearch": true,
+    "incomingCommand": [],
+    "showCollapseAndExpand": true,
+    "allowToolbar": true,
+    "showExcelExport": true,
+    "showPdfExport": true,
+    "showColumnChooser": true,
+    "showFilter": true,
+    "allowCheckbox": true,
+    "image_url": null,    
+    "columns": [
+        {
+            "field": "full_name",
+            "headerText": "Full Name",
+            "textAlign": "left",
+            "width": 120,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "email",
+            "headerText": "Email",
+            "textAlign": "left",
+            "width": 100,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "phone_number",
+            "headerText": "Phone",
+            "textAlign": "left",
+            "width": 50,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "region",
+            "headerText": "Region",
+            "textAlign": "left",
+            "width": 70,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "city",
+            "headerText": "City",
+            "textAlign": "left",
+            "width": 70,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "company_name",
+            "headerText": "Company Name",
+            "textAlign": "left",
+            "width": 120,
+            "visible": true,
+            "asCheckbox": true
+        },
+        {
+            "field": "delivery_team",
+            "headerText": "Delivery Team",
+            "textAlign": "left",
+            "width": 120,
+            "visible": true,
+            "asCheckbox": true
+        }
+    ]
+}

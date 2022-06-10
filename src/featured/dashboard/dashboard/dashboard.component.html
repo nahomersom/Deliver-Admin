@@ -1,0 +1,170 @@
+<div class="row mb-4">
+  <div class="col-md-3 col-sm-10 col-7">
+    <div class="card" id="totalOrders">
+      <div class="card-content">
+        <div class="row">
+          <div class="columen col-4">
+            <i class="fa fa-cart-plus fa-4x" aria-hidden="true"></i>
+          </div>
+          <div class="columen col-8">
+            <span><h3>{{totalOrders ?? 0| number }}</h3></span>
+            <span><h6>Total Orders</h6></span>
+          </div>
+        </div>
+         
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-sm-10 col-7">
+    <div class="card" id="totalIncome">
+      <div class="card-content">
+          <div class="row">
+            <div class="columen col-4">
+              <i class="fa fa-usd fa-4x" aria-hidden="true"></i>
+            </div>
+            <div class="columen col-8">
+              <span><h3>{{totalIncome ?? 0 | number }}</h3></span>
+              <span><h6>Total Income</h6></span>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-sm-10 col-7">
+    <div class="card" id="totalCustomers">
+      <div class="card-content">
+          <div class="row">
+            <div class="columen col-4">
+              <i class="fa fa-users fa-4x" aria-hidden="true"></i>
+            </div>
+            <div class="columen col-8">
+              <span><h3>{{totalCustomer ?? 0 | number }}</h3></span>
+              <span><h6>Total Customers</h6></span>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+  <div class="col-md-3 col-sm-10 col-7">
+    <div class="card" id="totalPending">
+      <div class="card-content">
+          <div class="row">
+            <div class="columen col-4">
+              <i class="fa fa-clock-o fa-4x" aria-hidden="true"></i>
+            </div>
+            <div class="columen col-8">
+              <span><h3>{{totalPending ?? 0| number }}</h3></span>
+              <span><h6>Total Pending</h6></span>
+            </div>
+          </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div class="row">
+  <div class="col-md-6 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+       Sales
+      </div>
+      <div class="card-content">
+        <ejs-chart
+          height="350"
+          width="100%"
+          title="Sales"
+                  [tooltip]="tooltip"
+          [primaryXAxis]="primaryXAxis"
+          [primaryYAxis]="primaryYAxis"
+        >
+          <e-series-collection>
+            <e-series
+              fill="#b2cfff"
+              opacity="0.6"
+              [dataSource]="chartData"
+              type="Area"
+              xName="day"
+              yName="sales"
+              name="Total Sales"
+            ></e-series>
+          </e-series-collection>
+        </ejs-chart>
+      </div>
+    </div>
+  </div>
+
+  <div class="col-md-6 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        Recent orders
+      </div>
+      <div class="card-content">
+        <div style="margin: 24px 24px 0px 24px;">
+          <ejs-daterangepicker placeholder=" -- select date here to filter -- " (change)="getPieChartContent($event?.value)"></ejs-daterangepicker>
+        </div>
+        <ejs-accumulationchart id="chart-container" height="65%" [enableSmartLabels]='enableSmartLabels'>
+          <e-accumulation-series-collection>
+              <e-accumulation-series  [dataSource]='order_summery' xName='x' yName='y'[pointColorMapping]= 'map'[dataLabel]='datalabel'>
+
+              </e-accumulation-series>
+          </e-accumulation-series-collection>
+        </ejs-accumulationchart>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="row">
+  <div class="col-md-12 col-sm-12 col-xs-12">
+    <div class="card">
+      <div class="card-header">
+        <h6>Recent orders</h6>
+      </div>
+      <div class="card-content">
+        <ejs-grid
+          height="250"
+          [dataSource]='recent_orders'
+          [allowPaging]="true"
+          [pageSettings]="pageSettings"
+        >
+          <e-columns>
+            <e-column *ngFor="let column of columens" [field]="column.field" [headerText]="column.headerText"
+              [width]="column.width" [textAlign]="column.textAlign" [format]="column.format" [type]="column.type">
+              <ng-template #template let-Data *ngIf="column.status">
+                      <span class="status pending" *ngIf="Data.status==='pending'">
+                          PENDING
+                      </span>
+                      <span class="status assigned" *ngIf="Data.status==='assigned'">
+                          ASSIGNED
+                      </span>
+                      <span class="status accepted" *ngIf="Data.status==='accepted'">
+                          ACCEPTED
+                      </span>
+                      <span class="status rejected" *ngIf="Data.status==='rejected'">
+                          REJECTED
+                      </span>
+                      <span class="status start" *ngIf="Data.status==='start'">
+                          START
+                      </span>
+                      <span class="status done" *ngIf="Data.status==='done'">
+                          DONE
+                      </span>
+                      <span class="status canceled" *ngIf="Data.status==='canceled'">
+                          CANCELED
+                      </span>
+              </ng-template>
+            </e-column>
+            <!-- <e-column headerText="Action" width="100" textAlign="Center">
+            <ng-template #template let-data>
+              <div>
+                <i class="btn fas fa-eye"></i>
+              </div>
+            </ng-template>
+            </e-column>  -->
+          </e-columns>
+        </ejs-grid>
+      </div>
+    </div>
+  </div>
+</div>

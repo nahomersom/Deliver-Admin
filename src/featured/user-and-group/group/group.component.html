@@ -1,0 +1,113 @@
+<div class="card">       
+ 
+  <div class="card-content">
+    <form [formGroup]="formgroup">
+      <div class="row">
+        <div class="col-md-6 col-sm-12 col-xs-12">
+          <label>Title </label><br />
+          <div class="e-input-group">
+            <input
+              class="e-input"
+              name="input"
+              formControlName="title"
+              type="text"
+              [ngClass]="{
+                invalid: service.getControl(
+                  formgroup,
+                  'title'
+                ).invalid,
+                valid: service.getControl(
+                  formgroup,
+                  'title'
+                ).valid
+              }"
+           
+              placeholder="Title"
+            />
+          </div>
+
+          <span *ngIf="formSubmitted && service.getControl(formgroup,'title').hasError('required')" class="error">
+            <small> * title is required</small>
+          </span>
+        </div>
+        <div class="col-md-6 col-sm-12 col-xs-12">
+          <label>Group For </label><br />
+          <ejs-dropdownlist
+          [ngClass]="{
+            invalid: service.getControl(
+              formgroup,
+              'for'
+            ).invalid,
+            valid: service.getControl(
+              formgroup,
+              'for'
+            ).valid
+          }"
+          cssClass="e-outline" [dataSource]="for" [fields]="fields" formControlName="for" placeholder="select category">
+          </ejs-dropdownlist>
+          <span *ngIf="formSubmitted && service.getControl(formgroup,'for').hasError('required')" class="error">
+            <small> * type is required</small>
+          </span>
+        </div>
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="tbl_body mt-4">
+            <div class="form-group mb-2">
+              <span *ngIf="!filter().length && formSubmitted" class="error">
+                <small style="text-align: center;">* select at least one role</small>
+              </span>
+              <span style="float: right; margin-right: 10px; margin-bottom: 15px;">
+                <ejs-checkbox  label="Select/Deselect All" (change)="selectAll($event.checked)" id="checkbox"></ejs-checkbox>
+              </span>
+            </div>
+            <div class="table-wrapper">
+
+            <table  class="table table-striped">
+              <thead align="center">
+                <tr>
+                  <th>#</th><th>Role</th><th>Can Add</th><th>Can Update</th>
+                  <th>Can Delete</th><th>Can View</th><th>Can View Detail</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr *ngFor="let role of roles; index as i">
+                  <td align="center" scope="row">{{ i + 1 }}</td>
+                  <td align="center">{{ role.title | titlecase }}</td>
+                  <td align="center">
+                    <ejs-checkbox *ngIf="role.canAdd !== null" [checked]="getChecked(role.canAdd)" 
+                    (change)="onChange(i,'canAdd',$event.checked)"
+                    ></ejs-checkbox>
+                  </td>
+                  <td align="center">
+                    <ejs-checkbox *ngIf="role.canUpdate !== null" [checked]="getChecked(role.canUpdate)" 
+                    (change)="onChange(i,'canUpdate',$event.checked)"
+                    ></ejs-checkbox>
+                  </td>
+                  <td align="center">
+                    <ejs-checkbox *ngIf="role.canDelete !== null" [checked]="getChecked(role.canDelete)" 
+                    (change)="onChange(i,'canDelete',$event.checked)"
+                    ></ejs-checkbox>
+                  </td>
+                  <td align="center">
+                    <ejs-checkbox *ngIf="role.canView !== null" [checked]="getChecked(role.canView)"
+                    (change)="onChange(i,'canView',$event.checked)"
+                    ></ejs-checkbox>
+                  </td>
+                  <td align="center">
+                    <ejs-checkbox *ngIf="role.canViewDetail !== null" [checked]="getChecked(role.canViewDetail)" 
+                    (change)="onChange(i,'canViewDetail',$event.checked)"
+                    ></ejs-checkbox>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          </div>
+        </div> 
+      </div>
+      <hr />
+      <app-form-buttons (submit)="Submit($event)"></app-form-buttons>
+      <br />
+    </form>
+  </div>
+</div>

@@ -1,0 +1,464 @@
+<div class="card">
+  <!-- <div class="card-header">
+    <h4>{{ id ? "Update" : "Create" }} Vehicle</h4>
+  </div> -->
+
+  <div class="card-content">
+    <form [formGroup]="formGroup">
+      <div class="row" style="margin-left: 150px">
+        <div class="col-md-6 col-sm-12 col-xs-12">
+          <div class="label" d-flex justify-content-center>
+            <label class="owner_photo" style="margin-left: 30px">owner photo</label>
+          </div>
+          <div class="wrap">
+            <span *ngIf="owner_image">
+              <img [src]="owner_image" id="owner-img" />
+            </span>
+
+            <span *ngIf="!owner_image">
+              <i
+                class="fa fa-user fa-5x"
+                aria-hidden="true"
+                id="owner-img"
+              ></i>
+            </span>
+            <button id="delete" (click)="onTrash('owner')">
+              <i class="fa fa-trash"></i>
+            </button>
+            <button class="e-btn e-control" id="browseOwnerPhoto">
+              <i class="fa fa-edit"></i>
+            </button>
+          </div>
+
+          <ejs-uploader
+            #owner
+            allowedExtensions="image/*"
+            minFi1eSize="10000"
+            maxFileSize="1500000"
+            [showFileList]="false"
+            id="owner"
+            [autoUpload]="false"
+            (change)="convert_from_base64(this,owner.filesData[0],'owner_image','formGroup')"
+            multiple="false"
+          ></ejs-uploader>
+
+          <span
+            class="e-error"
+            id="photo-error1"
+            *ngIf="vehicleFormSubmitted && !owner_image"
+          >
+            <span class="validation-error">*photo required*</span>
+          </span>
+        </div>
+        <div class="vehicle-img col-md-6 col-sm-12 col-xs-12">
+          <div class="vehicle" style="margin-left: 402px">
+            <label>Vehicle Image</label>
+          </div>
+          <div class="wrap" style="margin-left:372px">
+            <span *ngIf="vehicle_image">
+              <img [src]="vehicle_image" id="vehicle-img" />
+            </span>
+
+            <span *ngIf="!vehicle_image">
+              <i
+                class="fa fa-car fa-5x"
+                aria-hidden="true"
+                id="vehicle-img"
+              ></i>
+            </span>
+            <button id="delete" (click)="onTrash('vehicle')">
+              <i class="fa fa-trash"></i>
+            </button>
+            <button class="e-btn e-control" id="browseVehiclePhoto">
+              <i class="fa fa-edit"></i>
+            </button>
+          </div>
+
+          <ejs-uploader
+            #vehicle
+            allowedExtensions="image/*"
+            minFi1eSize="10000"
+            maxFileSize="1500000"
+            [showFileList]="false"
+            [autoUpload]="false"
+            id="vehicle"
+            (change)="convert_from_base64(this,vehicle.filesData[0],'vehicle_image','formGroup')"
+            multiple="false"
+          ></ejs-uploader>
+
+          <span
+            class="e-error"
+            id="photo-error"
+            *ngIf="vehicleFormSubmitted && !vehicle_image"
+          >
+            <span class="validation-error">*photo required*</span>
+          </span>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="mb-4 col-md-6 col-sm-12 col-xs-12">
+          <label>Plate Number<small class="astriks">*</small></label>
+ <div class="e-input-group">
+                    <input class="e-input" name='input'   formControlName="plate_number" type="text" [ngClass]="{
+                      'invalid': getControl(
+                        formGroup,
+                        'plate_number'
+                      ).invalid,
+                      'valid': getControl(
+                        formGroup,
+                        'plate_number'
+                      ).valid
+                    }"
+                    
+                    placeholder="Plate number"/>
+                
+                    </div>
+ 
+        </div>
+        <div class="mb-4 col-md-6 col-sm-12 col-xs-12">
+          <label for="start">Model<small class="astriks">*</small></label>
+            <div class="e-input-group">
+              <input class="e-input" name='input' formControlName="model" type="text" [ngClass]="{
+              'invalid': getControl(
+                formGroup,
+                'model'
+              ).invalid,
+              'valid': getControl(
+                formGroup,
+                'model'
+              ).valid
+              }"
+         
+               placeholder="Model"
+              />
+            </div>
+   
+        </div>
+        <div class="mb-4 col-md-6 col-sm-12 col-xs-12">
+          <label for="start">Load Capacity<small class="astriks">*</small></label>
+          <div class="e-input-group">
+            <input class="e-input" name='input' formControlName="load_capacity" type="text" [ngClass]="{
+            'invalid': getControl(
+              formGroup,
+              'load_capacity'
+            ).invalid,
+            'valid': getControl(
+              formGroup,
+              'load_capacity'
+            ).valid
+            }"
+            
+             placeholder="Load Capacity"
+            />
+          </div>
+ 
+        </div>
+        <div class="mb-4 col-md-6 col-sm-12 col-xs-12">
+          <label for="start">Chasis Number<small class="astriks">*</small></label>
+          <div class="e-input-group">
+            <input class="e-input" name='input' formControlName="chassis_number" type="text" [ngClass]="{
+            'invalid': getControl(
+              formGroup,
+              'chassis_number'
+            ).invalid,
+            'valid': getControl(
+              formGroup,
+              'chassis_number'
+            ).valid
+            }"
+      
+             placeholder="Chasis Number"
+            />
+          </div>
+
+        </div>
+
+        <div class="mb-4 col-md-6 col-sm-12 col-xs-12">
+          <div class="form-group">
+            <label>Vehcile Type<small class="astriks">*</small></label>
+            <ejs-dropdownlist
+              cssClass="e-outline"
+              placeholder="Vehicle type"
+              formControlName="vehicle_type_id"
+              [dataSource]="vehicleTypeList"
+              [fields]="vehicleTypefields"
+              floatLabelType="Never"
+              [ngClass]="{
+                'invalid':getControl(
+                     formGroup,
+                     'vehicle_type_id'
+                ).invalid,
+                'valid':getControl(
+                  formGroup,
+                  'vehicle_type_id'
+             ).valid
+              }"
+            ></ejs-dropdownlist>
+    
+          </div>
+        </div>
+
+        <h3>Owner Information</h3>
+
+        <div class="mb-4 col-md-6 col-sm-12 col-xs-12">
+          <label for="start">Full Name<small class="astriks">*</small></label>
+          <div class="e-input-group">
+            <input class="e-input" name='input' formControlName="owner_full_name" type="text" [ngClass]="{
+            'invalid': getControl(
+              formGroup,
+              'owner_full_name'
+            ).invalid,
+            'valid': getControl(
+              formGroup,
+              'owner_full_name'
+            ).valid
+            }"
+           
+             placeholder="Full Name"
+            />
+          </div>
+
+        </div>
+        <div class="mb-4 col-md-6 col-sm-12 col-xs-12">
+          <label for="start">Phone Number<small class="astriks">*</small></label>
+          <div class="e-input-group">
+            <input class="e-input"
+            (keypress)="numberOnly($event)"
+            name='input' formControlName="owner_phone_number" type="text" [ngClass]="{
+            'invalid': getControl(
+              formGroup,
+              'owner_phone_number'
+            ).invalid,
+            'valid': getControl(
+              formGroup,
+              'owner_phone_number'
+            ).valid
+            }"
+        
+             placeholder="Phone Number"
+            />
+          </div>
+
+            <span
+              class="e-error"
+              *ngIf="
+                vehicleFormSubmitted &&
+                formGroup.controls.owner_phone_number.hasError(
+                  'minlength'
+                )
+              "
+            >
+              <span class="validation-error">*min length 9*</span>
+            </span>
+            <span
+              class="e-error"
+              *ngIf="
+                vehicleFormSubmitted &&
+                formGroup.controls.owner_phone_number.hasError(
+                  'maxlength'
+                )
+              "
+            >
+              <span class="validation-error">*max length 10*</span>
+            </span>
+
+        </div>
+        <div class="mb-4 col-md-6 col-sm-12 col-xs-12">
+          <div class="form-group">
+            <label for="start">Email<small class="astriks">*</small></label>
+            <div class="e-input-group">
+              <input class="e-input" name='input' formControlName="owner_email" type="text" [ngClass]="{
+              'invalid': getControl(
+                formGroup,
+                'owner_email'
+              ).invalid,
+              'valid': getControl(
+                formGroup,
+                'owner_email'
+              ).valid
+              }"
+      
+               placeholder="Email"
+              />
+            </div>
+            <span
+              class="e-error"
+              *ngIf="
+                vehicleFormSubmitted &&
+                formGroup.controls.owner_email.hasError('email')
+              "
+            >
+              <span class="validation-error">*Invalid Email*</span>
+            </span>
+          </div>
+        </div>
+        <div class="mb-4 col-md-6 col-sm-12 col-xs-12">
+          <div class="form-group">
+            <label>Region<small class="astriks">*</small></label>
+            <ejs-dropdownlist
+              cssClass="e-outline"
+              [dataSource]="lookup_data['region']"
+              [fields]="fields"
+              placeholder="Region"
+              (change)="load_city($event.itemData?.id, null,formGroup,'owner_city')"
+              formControlName="owner_region"
+              floatLabelType="Never"
+              [ngClass]="{
+                'invalid': getControl(
+                  formGroup,
+                  'owner_region'
+                ).invalid,
+                'valid': getControl(
+                  formGroup,
+                  'owner_region'
+                ).valid
+              }"
+            ></ejs-dropdownlist>
+     
+          </div>
+        </div>
+
+        <div class="mb-4 col-md-6 col-sm-12 col-xs-12">
+          <div class="form-group">
+            <label>City<small class="astriks">*</small></label>
+            <ejs-dropdownlist
+              cssClass="e-outline"
+              [dataSource]="lookup_data['city']"
+              [fields]="fields"
+              formControlName="owner_city"
+              (change)="load_sub_city($event.itemData?.id, null,formGroup,'owner_sub_city')"
+              placeholder="City"
+              floatLabelType="Never"
+              [ngClass]="{
+                'invalid': getControl(
+                  formGroup,
+                  'owner_city'
+                ).invalid,
+                'valid': getControl(
+                  formGroup,
+                  'owner_city'
+                ).valid
+              }"
+            ></ejs-dropdownlist>
+    
+          </div>
+        </div>
+        <div class="mb-4 col-md-6 col-sm-12 col-xs-12">
+          <div class="form-group">
+            <label>Sub city<small class="astriks">*</small></label>
+            <ejs-dropdownlist
+              [dataSource]="lookup_data['sub_city']"
+              [fields]="fields"
+              cssClass="e-outline"
+              placeholder="Subcity"
+              formControlName="owner_sub_city"
+              floatLabelType="Never"
+              [ngClass]="{
+                'invalid': getControl(
+                  formGroup,
+                  'owner_sub_city'
+                ).invalid,
+                'valid': getControl(
+                  formGroup,
+                  'owner_sub_city'
+                ).valid
+              }"
+            ></ejs-dropdownlist>
+            <span
+              class="e-error"
+              *ngIf="
+                vehicleFormSubmitted &&
+                formGroup.controls.owner_sub_city.hasError('required')
+              "
+            >
+           
+            </span>
+          </div>
+        </div>
+        <div class="mb-4 col-md-6 col-sm-12 col-xs-12">
+          <label for="start">Woreda<small class="astriks">*</small></label>
+          <div class="form-group">
+                        
+           <div class="e-input-group">
+            <input class="e-input" name='input'   formControlName="owner_wereda" type="text"   [ngClass]="{
+              'invalid': getControl(
+                formGroup,
+                'owner_wereda'
+              ).invalid,
+              'valid': getControl(
+                formGroup,
+                'owner_wereda'
+              ).valid
+            }"
+          
+            placeholder="Woreda"/>
+        
+            </div>
+
+          </div>
+
+        </div>
+        <div class="mb-4 col-md-6 col-sm-12 col-xs-12">
+          <label>Attachment<small class="astriks">*</small></label>
+          <div
+            class="row form-group"
+            style="margin-left: -16px; margin-top: -1px"
+          >
+            <div class="col-md-11 col-sm-12 col-xs-12">
+              <input class="e-input" name='input' #file
+              formControlName="owner_attachment"
+              accept=".pdf"
+              type="file"
+
+              (change)="uploading_file($event)"
+                [ngClass]="{
+                'invalid': getControl(
+                  formGroup,
+                  'owner_attachment'
+                ).invalid,
+                'valid': getControl(
+                  formGroup,
+                  'owner_attachment'
+                ).valid
+              }"
+               
+       
+              placeholder="attachment"/>
+
+            </div>
+            <div class="col-md-1 col-sm-12 col-xs-12" *ngIf="isUpdate">
+              <i class="far fa-file-pdf" (click)="viewFile()"></i>
+            </div>
+        
+            <span class="e-error" *ngIf="error">
+              <span class="validation-error"
+                >*maximum file upload size 10 mb*</span
+              >
+            </span>
+          </div>
+        </div>
+
+        <div class="col-md-12 col-sm-12 col-xs-12">
+          <div class="form-group">
+            <label>Remark</label>
+            <ejs-textbox
+              multiline="true"
+              rows="3"
+              cssClass="e-outline"
+              placeholder="remark"
+              formControlName="remark"
+              floatLabelType="Never"
+            ></ejs-textbox>
+          </div>
+        </div>
+      </div>
+      <hr />
+      <app-form-buttons
+        (submit)="Submit($event)"
+        style="margin-left: 20px !important"
+      ></app-form-buttons>
+      <br />
+    </form>
+  </div>
+</div>

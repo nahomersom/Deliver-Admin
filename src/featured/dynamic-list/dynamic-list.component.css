@@ -1,0 +1,62 @@
+.image img {
+    height: 40px;
+    width: 40px;
+    border-radius: 50px;
+    /* box-shadow: inset 0 0 1px #e0e0e0, inset 0 0 14px rgba(0,0,0,0.2); */
+}
+
+.status {
+    padding: 8px;
+    color: white;
+    margin-left: 20px !important;
+    margin-right: 20px !important;
+    width: 150px;
+}
+
+
+.pending {
+    background-color: rgb(94, 165, 245);
+    padding: 10px !important;
+
+}
+.assigned{
+    background-color: burlywood;
+    padding: 10px !important;
+}
+
+.accepted{
+    background-color: rgb(102, 214, 241);
+    padding: 10px !important;
+}
+
+.rejected{
+    background-color: red;
+    padding: 10px !important;
+}
+
+.start{
+    background-color: rgb(141, 219, 117);
+    padding: 10px !important;
+}
+
+.done{
+    background-color: rgb(31, 219, 31);
+    padding: 10px !important;
+}
+
+.canceled{
+    background-color: red;
+    padding: 10px !important;
+}
+.e-btn.e-flat, .e-css.e-btn.e-flat {
+    background-color: #778bfd;
+    border:none;
+    box-shadow: none;
+    color: #fff;
+}
+.e-grid .e-groupheadercell {
+    background-color: #778bfd;
+    border:none;
+    box-shadow: none;
+    color: #fff;
+}

@@ -1,0 +1,18 @@
+.main{
+ position: absolute;
+ top:20%;
+ left:30%;
+
+}
+.content{
+    display:flex;
+    flex-direction: column;
+}
+h1{
+    text-align: center;
+    font-weight: bold;
+    font-size:200px;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+    color: rgb(119,139,253);
+    color: linear-gradient(90deg, rgba(119,139,253,1) 0%, rgba(99,121,246,1) 76%);
+}

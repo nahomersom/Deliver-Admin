@@ -1,0 +1,513 @@
+<div class="container">
+  <div class="col-lg-12 col-md-9 col-sm-9 col-12">
+    <div class="card">
+      <div class="card-content">
+        <form [formGroup]="driverFormGroup">
+          <div class="row">
+            <div class="col-9">
+              <div class="row">
+                <div
+                  formGroupName="account"
+                  class="col-md-4 col-sm-12 col-xs-12"
+                >
+                  <div class="mb-4 form-group">
+                    <label for="start"
+                      >Full Name <small class="astriks">*</small></label
+                    >
+                    <div class="e-input-group">
+                      <input
+                        class="e-input"
+                        name="input"
+                        formControlName="full_name"
+                        type="text"
+                        [ngClass]="{
+                          invalid: getControl(
+                            driverFormGroup,
+                            'account.full_name'
+                          ).invalid,
+                          valid: getControl(
+                            driverFormGroup,
+                            'account.full_name'
+                          ).valid
+                        }"
+                      
+                        placeholder="Full Name"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div
+                  formGroupName="account"
+                  class="col-md-4 col-sm-12 col-xs-12"
+                >
+                  <div class="form-group">
+                    <label for="start"
+                      >Email<small class="astriks">*</small></label
+                    >
+                    <div class="e-input-group">
+                      <input
+                        class="e-input"
+                        name="input"
+                        formControlName="email"
+                        type="text"
+                        [ngClass]="{
+                          invalid: getControl(
+                            driverFormGroup,
+                            'account.email'
+                          ).invalid,
+                          valid: getControl(
+                            driverFormGroup,
+                            'account.email'
+                          ).valid
+                        }"
+                        
+                        placeholder="Email"
+                      />
+                    </div>
+
+                    <span
+                      class="e-error"
+                      *ngIf="
+                        driverFormSubmitted &&
+                        
+                          getControl(driverFormGroup, 'account.email')
+                          .hasError('email')
+                      "
+                    >
+                      <small class="validation-error">*Invalid Email*</small>
+                    </span>
+                  </div>
+                </div>
+                <div
+                  formGroupName="account"
+                  class="col-md-4 col-sm-12 col-xs-12"
+                >
+                  <div class="form-group">
+                    <label for="start"
+                      >Phone Number<small class="astriks">*</small></label
+                    >
+                    <div class="e-input-group">
+                      <input
+                        class="e-input"
+                        name="input"
+                        (keypress)="numberOnly($event)"
+                        formControlName="phone_number"
+                        type="text"
+                        [ngClass]="{
+                          invalid: getControl(
+                            driverFormGroup,
+                            'account.phone_number'
+                          ).invalid,
+                          valid: getControl(
+                            driverFormGroup,
+                            'account.phone_number'
+                          ).valid
+                        }"
+             
+                        placeholder="Phone number"
+                      />
+                    </div>
+
+                    <span
+                      class="e-error"
+                      *ngIf="
+                        driverFormSubmitted &&
+                        
+                          getControl(driverFormGroup, 'account.phone_number')
+                          .hasError('minlength')
+                      "
+                    >
+                      <small class="validation-error">*minimum length 9*</small>
+                    </span>
+
+                    <span
+                      class="e-error"
+                      *ngIf="
+                        driverFormSubmitted &&
+                        
+                          getControl(driverFormGroup, 'account.phone_number')
+                          .hasError('maxlength')
+                      "
+                    >
+                      <small class="validation-error"
+                        >*maximum length 10*</small
+                      >
+                    </span>
+                  </div>
+                </div>
+
+                <div class="col-md-4 col-sm-12 col-xs-12 mb-4">
+                  <div class="form-group">
+                    <label for="start"
+                      >Driver Type<small class="astriks">*</small></label
+                    >
+                    <ejs-dropdownlist
+                      [dataSource]="lookup_data['driver_type']"
+                      [fields]="fields"
+                      formControlName="driver_type"
+                      cssClass="e-outline"
+                      placeholder="Agent Type"
+                      floatLabelType="Never"
+                      [ngClass]="{
+                        invalid: getControl(
+                          driverFormGroup,
+                          'driver_type'
+                        ).invalid,
+                        valid: getControl(
+                          driverFormGroup,
+                          'driver_type'
+                        ).valid
+                      }"
+                    ></ejs-dropdownlist>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <label for="start"
+                      >Vehicle Type<small class="astriks">*</small></label
+                    >
+
+                    <ejs-dropdownlist
+                      placeholder="Vehicle type"
+                      formControlName="vehicle_type_id"
+                      [dataSource]="vehicleTypeList"
+                      [fields]="vehicleTypefields"
+                      [ngClass]="{
+                        invalid: getControl(
+                          driverFormGroup,
+                          'vehicle_type_id'
+                        ).invalid,
+                        valid: getControl(
+                          driverFormGroup,
+                          'vehicle_type_id'
+                        ).valid
+                      }"
+                    ></ejs-dropdownlist>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <label for="start"
+                      >Plate Number<small class="astriks">*</small></label
+                    >
+                    <div class="e-input-group">
+                      <input
+                        class="e-input"
+                        name="input"
+                        formControlName="plate_number"
+                        type="text"
+                        [ngClass]="{
+                          invalid: getControl(
+                            driverFormGroup,
+                            'plate_number'
+                          ).invalid,
+                          valid: getControl(
+                            driverFormGroup,
+                            'plate_number'
+                          ).valid
+                        }"
+             
+                        placeholder="plate number"
+                      />
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <label for="start"
+                      >Color<small class="astriks">*</small></label
+                    >
+                    <ejs-dropdownlist
+                      [dataSource]="lookup_data['color']"
+                      [fields]="fields"
+                      formControlName="color"
+                      cssClass="e-outline"
+                      placeholder="Color"
+                      floatLabelType="Never"
+                      [ngClass]="{
+                        invalid: getControl(
+                          driverFormGroup,
+                          'color'
+                        ).invalid,
+                        valid: getControl(driverFormGroup, 'color')
+                          .valid
+                      }"
+                    ></ejs-dropdownlist>
+                  </div>
+                </div>
+
+                <div class="col-md-4 col-sm-12 col-xs-12">
+                  <div class="form-group">
+                    <label for="start"
+                      >Assign to team<small class="astriks">*</small></label
+                    >
+                    <ejs-dropdownlist
+                      [dataSource]="lookup_data['driver_team']"
+                      [fields]="fields"
+                      formControlName="team"
+                      cssClass="e-outline"
+                      placeholder="Team"
+                      floatLabelType="Never"
+                      [ngClass]="{
+                        invalid: getControl(driverFormGroup, 'team')
+                          .invalid,
+                        valid: getControl(driverFormGroup, 'team')
+                          .valid
+                      }"
+                    >
+                    </ejs-dropdownlist>
+                  </div>
+                </div>
+            
+             
+             
+              </div>
+            </div>
+            <div class="col-3">
+              <div class="row">
+                <div class="col-3">
+                  <div class="wrap">
+                    <span *ngIf="image">
+                      <img [src]="image" id="main-profile-img" />
+                    </span>
+
+                    <span *ngIf="!image">
+                      <i
+                        class="fa fa-user fa-5x"
+                        aria-hidden="true"
+                        id="main-profile-img"
+                      ></i>
+                    </span>
+                    <button id="delete" (click)="onTrash()">
+                      <i class="fa fa-trash"></i>
+                    </button>
+                    <button class="e-btn e-control" id="browse">
+                      <i class="fa fa-edit"></i>
+                    </button>
+                  </div>
+
+                  <ejs-uploader
+                    #file
+                    allowedExtensions="image/*"
+                    minFi1eSize="10000"
+                    maxFileSize="1500000"
+                    [showFileList]="false"
+                    [autoUpload]="false"
+                    (change)="convert_from_base64(this,file?.filesData[0],'image','driverFormGroup')"
+                    multiple="false"
+                  ></ejs-uploader>
+                </div>
+              </div>
+              <span
+                class="e-error"
+                id="photo-error"
+                *ngIf="driverFormSubmitted && !image"
+              >
+                <span class="validation-error">*photo required*</span>
+              </span>
+            </div>
+          </div>
+
+          <div class="row">
+     
+            <div class="col-md-12 col-sm-12 col-xs-12">
+              <div class="form-group-mat">
+                <label for="start">Tags<small class="astriks">*</small></label>
+                <mat-form-field
+                  class="chip-list"
+                  appearance="outline"
+                  [ngClass]="{
+                    invalid: getControl(driverFormGroup, 'tags')
+                      .invalid,
+                    valid: getControl(driverFormGroup, 'tags').valid
+                  }"
+                >
+                  <input
+                    placeholder="Type your keyword here ..."
+                    [matChipInputFor]="chipList"
+                    [matChipInputSeparatorKeyCodes]="separatorKeysCodes"
+                    [matChipInputAddOnBlur]="addOnBlur"
+                    (matChipInputTokenEnd)="add($event)"
+                  />
+
+                  <mat-chip-list #chipList formControlName="tags">
+                    <mat-chip
+                      *ngFor="let tag of tags"
+                      [selectable]="selectable"
+                      [removable]="removable"
+                      (removed)="remove(tag)"
+                    >
+                      {{ tag }}
+                      <button matChipRemove *ngIf="removable">
+                        <mat-icon>cancel</mat-icon>
+                      </button>
+                    </mat-chip>
+                  </mat-chip-list>
+                </mat-form-field>
+              </div>
+            </div>
+            <div class="col-md-12 col-sm-12 col-xs-12 mb-4">
+              <div class="form-group">
+                <label for="start">Description</label>
+                <ejs-textbox
+                  formControlName="description"
+                  [multiline]="true"
+                  cssClass="e-outline"
+                  placeholder="Description"
+                  floatLabelType="Never"
+                ></ejs-textbox>
+              </div>
+            </div>
+          </div>
+          <h3>Address</h3>
+
+          <div class="row">
+            <div formGroupName="address" class="col-md-4 col-sm-12 col-xs-12">
+              <div class="form-group">
+                <label for="start"
+                  >Region<small class="astriks">*</small></label
+                >
+                <ejs-dropdownlist
+                (change)="load_city($event.itemData?.id,null,driverFormGroup,'city')"
+                [dataSource]="lookup_data['region']"
+                
+                [fields]="fields"
+                cssClass="e-outline"
+                placeholder="Region"
+                formControlName="region"
+                floatLabelType="Never"
+                [ngClass]="{
+                  'invalid': service.getControl(
+                    driverFormGroup,
+                    'address.region'
+                  ).invalid,
+                  'valid': service.getControl(
+                    driverFormGroup,
+                    'address.region'
+                  ).valid
+                }"
+              ></ejs-dropdownlist>
+              </div>
+            </div>
+            <div formGroupName="address" class="col-md-4 col-sm-12 col-xs-12">
+              <div class="form-group">
+                <label for="start">City<small class="astriks">*</small></label>
+                <ejs-dropdownlist
+                [dataSource]="lookup_data['city']"
+                (change)="load_sub_city($event.itemData?.id,null,driverFormGroup,'sub_city')"
+                [fields]="fields"
+                cssClass="e-outline"
+                placeholder="City"
+                formControlName="city"
+                floatLabelType="Never"
+                [ngClass]="{
+                  'invalid': service.getControl(
+                    driverFormGroup,
+                    'address.city'
+                  ).invalid,
+                  'valid': service.getControl(
+                    driverFormGroup,
+                    'address.city'
+                  ).valid
+                }"
+              ></ejs-dropdownlist>
+              </div>
+            </div>
+            <div formGroupName="address" class="col-md-4 col-sm-12 col-xs-12">
+              <div class="form-group">
+                <label for="start"
+                  >Sub city<small class="astriks">*</small></label
+                >
+                <ejs-dropdownlist
+                  formControlName="sub_city"
+                  [dataSource]="lookup_data['sub_city']"
+                  [fields]="fields"
+                  cssClass="e-outline"
+                  placeholder="Sub city"
+                  floatLabelType="Never"
+                  [ngClass]="{
+                    invalid: getControl(
+                      driverFormGroup,
+                      'address.sub_city'
+                    ).invalid,
+                    valid: getControl(
+                      driverFormGroup,
+                      'address.sub_city'
+                    ).valid
+                  }"
+                ></ejs-dropdownlist>
+              </div>
+            </div>
+          </div>
+          <div class="row">
+            <div formGroupName="address" class="col-md-4 col-sm-12 col-xs-12">
+              <div class="form-group">
+                <label for="start"
+                  >Woreda<small class="astriks">*</small></label
+                >
+                <div class="form-group">
+                  <div class="e-input-group">
+                    <input
+                      class="e-input"
+                      name="input"
+                      formControlName="wereda"
+                      type="text"
+                      [ngClass]="{
+                        invalid: getControl(
+                          driverFormGroup,
+                          'address.wereda'
+                        ).invalid,
+                        valid: getControl(
+                          driverFormGroup,
+                          'address.wereda'
+                        ).valid
+                      }"
+                     
+                      placeholder="Wereda"
+                    />
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div formGroupName="address" class="col-md-4 col-sm-12 col-xs-12">
+              <div class="form-group">
+                <label for="start"
+                  >House Number<small class="astriks">*</small></label
+                >
+
+                <div class="e-input-group">
+                  <input
+                    class="e-input"
+                    name="input"
+                    formControlName="house_number"
+                    type="text"
+                    [ngClass]="{
+                      invalid: getControl(
+                        driverFormGroup,
+                        'address.house_number'
+                      ).invalid,
+                      valid: getControl(
+                        driverFormGroup,
+                        'address.house_number'
+                      ).valid
+                    }"
+               
+                    placeholder="house number"
+                  />
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+
+          <app-form-buttons
+            (submit)="Submit($event)"
+            style="margin-left: 20px !important"
+          ></app-form-buttons>
+          <br />
+        </form>
+      </div>
+    </div>
+  </div>
+</div>

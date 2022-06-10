@@ -1,0 +1,286 @@
+<div class="card">
+
+  <div class="card-content">  
+    <form [formGroup]="merchantFormGroup">
+            
+      <div class="row">
+        <div formGroupName = "account" class="mb-4 col-md-6 col-sm-12 col-xs-12">
+          
+          <div class="form-group" >
+            <label>Full Name<small class="astriks">*</small></label>
+            <div class="e-input-group">
+              <input class="e-input" name='input'   formControlName="full_name" type="text" [ngClass]="{
+                'invalid': crudService.getControl(
+                  merchantFormGroup,
+                  'account.full_name'
+                ).invalid,
+                'valid': crudService.getControl(
+                  merchantFormGroup,
+                  'account.full_name'
+                ).valid
+              }"
+           
+              placeholder="Full Name"/>
+          
+              </div>
+          </div>
+        </div>
+        <div formGroupName = "account" class="mb-4 col-md-6 col-sm-12 col-xs-12">
+
+              <label>Phone Number<small class="astriks">*</small></label>
+              <div class="form-group">
+                <div class="e-input-group">
+                  <input class="e-input" name='input'   
+                  (keypress)="numberOnly($event)" formControlName="phone_number" type="text" [ngClass]="{
+                    'invalid': crudService.getControl(
+                      merchantFormGroup,
+                      'account.phone_number'
+                    ).invalid,
+                    'valid': crudService.getControl(
+                      merchantFormGroup,
+                      'account.phone_number'
+                    ).valid
+                  }"
+               
+                  placeholder="Phone number"/>
+              
+                  </div>
+              
+              <span class="e-error" *ngIf="merchantFormSubmitted && crudService.getControl(merchantFormGroup,'account.phone_number').hasError('minlength')">
+                <span class="validation-error">*minimum length 9*</span>
+              </span>
+          
+              <span class="e-error" *ngIf="merchantFormSubmitted && crudService.getControl(merchantFormGroup,'account.phone_number').hasError('maxlength')">
+                <span class="validation-error">*maximum length 10*</span>
+              </span>
+            </div>
+        </div>
+        <div formGroupName = "account" class="mb-4 col-md-6 col-sm-12 col-xs-12">
+          <div class="form-group">
+            <label>Email<small class="astriks">*</small></label>
+            <div class="e-input-group">
+              <input class="e-input" name='input'   formControlName="email" type="text" [ngClass]="{
+                'invalid': crudService.getControl(
+                  merchantFormGroup,
+                  'account.email'
+                ).invalid,
+                'valid': crudService.getControl(
+                  merchantFormGroup,
+                  'account.email'
+                ).valid
+              }"
+          
+              placeholder="Email"/>
+          
+              </div>
+            <span class="e-error" *ngIf="merchantFormSubmitted && crudService.getControl(merchantFormGroup,'account.email').hasError('email')">
+              <span class="validation-error">*Invalid Email*</span>
+            </span>
+          </div>
+        </div>
+        <div formGroupName = "account" class="mb-4 col-md-6 col-sm-12 col-xs-12">
+          <div class="form-group">
+            <label>Group Id<small class="astriks">*</small></label>
+            <ejs-dropdownlist 
+            [ngClass]="{
+              'invalid': crudService.getControl(
+                   merchantFormGroup,
+                   'account.group_id'
+                 ).invalid,
+                 'valid': crudService.getControl(
+                   merchantFormGroup,
+                   'account.group_id'
+                 ).valid
+               }"
+         
+            cssClass="e-outline" 
+            formControlName="group_id"
+            [dataSource]="groupList"
+            [fields]="group_fields"
+            placeholder="Group Id" floatLabelType="Never"></ejs-dropdownlist>
+      
+          </div>
+        </div>
+
+        <div class="mb-4 col-md-4 col-sm-12 col-xs-12">
+          <label>Company Name<small class="astriks">*</small></label>
+            <div class="form-group">
+              <div class="e-input-group">
+                <input class="e-input" name='input'   formControlName="company_name" type="text"
+                 [ngClass]="{
+                  'invalid': crudService.getControl(
+                    merchantFormGroup,
+                    'company_name'
+                  ).invalid,
+                  'valid': crudService.getControl(
+                    merchantFormGroup,
+                    'company_name'
+                  ).valid
+                }"
+             
+                placeholder="Company Name"/>
+            
+                </div>
+
+              <div >
+          
+            </div>
+            </div>
+        </div>
+        <div class="mb-4 col-md-4 col-sm-12 col-xs-12">
+          <label>Company Address<small class="astriks">*</small></label>
+          <div class="form-group">
+            <div class="e-input-group">
+              <input class="e-input" name='input'   formControlName="company_address" type="text"
+               [ngClass]="{
+                'invalid': crudService.getControl(
+                  merchantFormGroup,
+                  'company_address'
+                ).invalid,
+                'valid': crudService.getControl(
+                  merchantFormGroup,
+                  'company_address'
+                ).valid
+              }"
+       
+              placeholder="Company Address"/>
+          
+            </div>
+
+          </div>
+        </div>
+    
+        <div class="mb-4 col-md-4 col-sm-12 col-xs-12">
+          <label>Merchant Team<small class="astriks">*</small></label>
+            <div class="form-group">
+            
+              <ejs-dropdownlist
+              [ngClass]="{
+                'invalid': crudService.getControl(
+                     merchantFormGroup,
+                     'delivery_team'
+                   ).invalid,
+                   'valid': crudService.getControl(
+                     merchantFormGroup,
+                     'delivery_team'
+                   ).valid
+                 }"
+
+              [dataSource]="lookup_data['merchant_team']"
+  [fields]="fields"
+              formControlName="delivery_team"
+              cssClass="e-outline" placeholder="Merchant Team" floatLabelType="Never"></ejs-dropdownlist>
+          
+            </div>
+        </div>
+
+        <h3>Address</h3>
+
+        <div formGroupName = "address" class="mb-4 col-md-6 col-sm-12 col-xs-12">
+            <label>Region<small class="astriks">*</small></label>
+            <div class="form-group">
+
+            <ejs-dropdownlist 
+            (change)="load_city($event.itemData?.id,null,merchantFormGroup,'city')"
+            [dataSource]="lookup_data['region']"
+            [fields]="fields"
+            cssClass="e-outline" 
+            formControlName="region"
+            placeholder="Region" floatLabelType="Never"
+            [ngClass]="{
+              'invalid': crudService.getControl(
+                merchantFormGroup,
+                'address.region'
+              ).invalid,
+              'valid': crudService.getControl(
+                merchantFormGroup,
+                'address.region'
+              ).valid
+            }"
+            
+            ></ejs-dropdownlist>
+      
+            </div>
+        </div>
+
+        <div formGroupName = "address" class="mb-4 col-md-6 col-sm-12 col-xs-12">
+            <label>City<small class="astriks">*</small></label>
+            <div class="form-group">
+
+              <ejs-dropdownlist
+              [dataSource]= "lookup_data['city']"
+              [fields]="fields"
+              (change)="load_sub_city($event.itemData?.id,null,merchantFormGroup,'sub_city')"
+              cssClass="e-outline" 
+              formControlName="city"
+              placeholder="City" floatLabelType="Never"
+              [ngClass]="{
+                'invalid': crudService.getControl(
+                  merchantFormGroup,
+                  'address.city'
+                ).invalid,
+                'valid': crudService.getControl(
+                  merchantFormGroup,
+                  'address.city'
+                ).valid
+              }"
+              ></ejs-dropdownlist>
+           
+            </div>
+        </div>
+      </div>
+
+      <div class="row">
+        <div formGroupName = "address" class="mb-4 col-md-6 col-sm-12 col-xs-12">
+          <label>Sub City<small class="astriks">*</small></label>
+          <div class="form-group">
+
+          <ejs-dropdownlist 
+          [dataSource]="lookup_data['sub_city']"
+          [fields]="fields" 
+          cssClass="e-outline"
+          formControlName="sub_city"
+          placeholder="Subcity" floatLabelType="Never"
+          [ngClass]="{
+            'invalid': crudService.getControl(
+              merchantFormGroup,
+              'address.sub_city'
+            ).invalid,
+            'valid': crudService.getControl(
+              merchantFormGroup,
+              'address.sub_city'
+            ).valid
+          }"
+          ></ejs-dropdownlist>
+ 
+          </div>
+        </div>
+        <div formGroupName = "address" class="mb-4 col-md-6 col-sm-12 col-xs-12">
+          <label>Wereda<small class="astriks">*</small></label>
+          <div class="form-group">
+
+            <div class="e-input-group">
+              <input class="e-input" name='input'   formControlName="wereda" type="text"   [ngClass]="{
+                'invalid': crudService.getControl(
+                  merchantFormGroup,
+                  'address.wereda'
+                ).invalid,
+                'valid': crudService.getControl(
+                  merchantFormGroup,
+                  'address.wereda'
+                ).valid
+              }"
+            
+              placeholder="Wereda"/>
+          
+              </div>
+          </div>
+        </div>
+      </div>
+
+      <hr />
+      <app-form-buttons (submit)="Submit($event)" style="margin-left: 20px !important;"></app-form-buttons>
+      <br />
+    </form>
+  </div>
+</div>

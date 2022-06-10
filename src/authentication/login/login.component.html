@@ -1,0 +1,64 @@
+
+<div class="container h-100 d-flex justify-content-center align-items-center">
+
+    <div class="e-card ">
+        <div class="card-header">
+            <div class="brand">
+                <h3 class="easy">Easy</h3>
+                <h3 class="delivery">Delivery</h3>
+              </div>
+            <i class="fa fa-user-circle fa-5x" aria-hidden="true"></i>
+          
+             <!-- <h6>LOGIN</h6> -->
+        </div>
+        <div class="card-body">
+             <form [formGroup]="loginFormGroup" ngOnSubmit="Submit()">
+               
+                     
+            <ejs-textbox cssClass="e-outline" autocomplete="off" formControlName="email" placeholder="Email">
+        </ejs-textbox>
+        <span class="e-error" *ngIf="formSubmitted && loginFormGroup.controls.email.hasError('required')">
+            <span class="validation-error">*required*</span>
+          </span>
+        <span class="e-error" *ngIf="formSubmitted && loginFormGroup.controls.email.hasError('email')">
+            <span class="validation-error">*Invalid email*</span>
+          </span>
+    
+    <div id="password">
+        <ejs-textbox cssClass="e-outline" autocomplete="off" formControlName="password" placeholder="Password" type="password">
+    </ejs-textbox>
+    </div>
+    <span class="e-error" *ngIf="formSubmitted && loginFormGroup.controls.password.hasError('required')">
+        <span class="validation-error">*required*</span>
+      </span>
+    <span class="e-error" *ngIf="formSubmitted && loginFormGroup.controls.password.hasError('minlength')">
+        <span class="validation-error">*Your password must be at least 5 characters long*</span>
+      </span>
+    
+        <div class="row">
+            <div class="col-lg-5 col-md-5 col-sm-5 col-xs-5">
+                <ejs-checkbox label="Remember me" cssClass="e-info" value="false" formControlName="remember"></ejs-checkbox>
+              
+            </div>
+           
+            <div class="col-lg-7 col-md-7 col-sm-7 col-xs-7" id="fp">
+                <span (click)="navigate()" class="login">forget password?</span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-12">
+                <button ejs-button cssClass="e-custom" (click)="Submit()" [disabled]="disabled">
+                    <span *ngIf="!requestSend">
+                        Login
+                    </span>
+                    <span *ngIf="requestSend">
+                        <i class="fa fa-spinner fa-spin fa-fw"></i>
+                    </span>
+                </button>
+            </div>
+        </div>
+    
+    </form>
+        </div>
+    </div>
+    </div>

@@ -1,0 +1,17 @@
+<div class="row" *ngIf="data !== null">
+  <div class="col-md-3 col-sm-12 col-xs-12">
+    <div *ngIf="data" class="header-left">
+      <span class="title-left mr-4">{{ data?.formTitle | titlecase }} </span>
+    </div>
+  </div>
+  <div class="col-md-6 col-sm-12 col-xs-12"></div>
+  <div class="col-md-3 col-sm-12 col-xs-12" *ngIf="data?.title !== 'Dashboard'">
+    <div *ngIf="data" class="header">
+      <span class="title mr-4">{{ data?.title | titlecase }}</span>
+      <span>
+        <i class="fas fa-chevron-circle-right mr-4"></i>
+      </span>
+      <span class="breadCrumb">{{ data?.breadCrumb | titlecase }}</span>
+    </div>
+  </div>
+</div>

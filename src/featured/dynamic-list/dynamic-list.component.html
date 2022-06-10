@@ -1,0 +1,65 @@
+<p></p>
+<ejs-grid #grid [childGrid]="childGrid" gridLines="default" [dataSource]="gridData" [allowGrouping]="grouped"
+    [groupSettings]="groupOptions" [allowPaging]="true" [pageSettings]="pageSettings" [editSettings]="editSettings"
+    [allowSorting]="true" [allowFiltering]="showFilter" [filterSettings]='filterOptions' [allowReordering]="true"
+    [allowResizing]="true" [toolbar]="toolbar" [searchSettings]="searchOptions" [allowTextWrap]="true" [allowMultiSorting]="true"
+    (toolbarClick)="toolbarClicked($event)" [height]="580" [allowExcelExport]="true" [allowPdfExport]='showPdfExport'
+    [showColumnChooser]="showColumnChooser" [resizeSettings]="resizeSettings" [selectionSettings]='selectionOptions'
+    (rowSelected)="onRowSelected($event.data, true)" (rowDeselected)="onRowSelected($event.data, false)" 
+    (actionComplete)='actionComplete($event)'
+    >
+    <e-columns >
+        <e-column type='checkbox' width='25' textAlign="center" *ngIf="allowCheckbox"></e-column>
+        <e-column headerText='' width='30' textAlign="center" *ngIf="listType.image_url">
+            <ng-template #template let-Data>
+                <div class="image">
+                    <img [src]="url + Data.id + '?time=' + date" alt="{{ data.id }}" style="width:35px; height: 35px;"/>
+                </div>
+         
+                
+            </ng-template>
+        </e-column>
+        <e-column *ngFor="let column of columns" [field]="column.field" [headerText]="column.headerText"
+            [width]="column.width" [minWidth]="column.minWidth" [maxWidth]="column.maxWidth" 
+            [displayAsCheckBox]="column.asCheckbox" [textAlign]="column.textAlign" [visible]="column.visible" 
+            clipMode="EllipsisWithTooltip" [format]="column.format" [type]="column.type">
+        </e-column>
+        <e-column headerText='Status'width='90' *ngIf="listType.pageName === 'Order'">
+            <ng-template #template let-Data>
+                <div class="status">
+                    <span class="pending" *ngIf="Data.order_status==='pending'">
+                        Pending
+                    </span>
+                    <span class="assigned" *ngIf="Data.order_status==='assigned'">
+                        assigned
+                    </span>
+                    <span class="accepted" *ngIf="Data.order_status==='accepted'">
+                        accepted
+                    </span>
+                    <span class="rejected" *ngIf="Data.order_status==='rejected'">
+                        rejected
+                    </span>
+                    <span class="start" *ngIf="Data.order_status==='start'">
+                        start
+                    </span>
+                    <span class="done" *ngIf="Data.order_status==='done'">
+                        lala
+                    </span>
+                    <span class="canceled" *ngIf="Data.order_status==='canceled'">
+                        canceled
+                    </span>
+                </div>
+            </ng-template>
+        </e-column>
+        <e-column headerText="Actions" [commands]="commands" [width]="50" *ngIf="commands && commands.length > 0"
+            textAlign="center">
+        </e-column>
+    </e-columns>
+</ejs-grid>
+
+<ejs-dialog id="dialog" #ejDialog header="Confirmation" [target]="targetElement" width="400px" [buttons]="buttons"
+  [visible]="false" allowDragging="true" [closeOnEscape]="true" [animationSettings]="animationSettings"
+  [showCloseIcon]="true">
+</ejs-dialog>
+
+<div #container class="root-container"></div>

@@ -1,0 +1,61 @@
+{
+    "formPath": "ws/vehicle-and-driver/assign",
+    "dataApi": "vehicle/assign",
+    "deleteRowApi": "vehicle/assign/delete",
+    "pageName": "Assign",
+    "grouped": false,
+    "groupBy": [],
+    "showSearch": true,
+    "incomingCommand": [],
+    "showCollapseAndExpand": true,
+    "allowToolbar": true,
+    "showExcelExport": true,
+    "showPdfExport": true,
+    "showColumnChooser": true,
+    "showFilter": true,
+    "allowCheckbox": true,
+    "columns": [
+        {
+            "field": "vehicle_type",
+            "headerText": "Vehicle Type",
+            "textAlign": "left",
+            "width": 70,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "driver",
+            "headerText": "Driver",
+            "textAlign": "left",
+            "width": 120,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "phone_number",
+            "headerText": "phone number",
+            "textAlign": "left",
+            "width": 70,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "plate_number",
+            "headerText": "Plate number",
+            "textAlign": "left",
+            "width": 80,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "warehouse",
+            "headerText": "warehouse",
+            "textAlign": "left",
+            "width": 120,
+            "visible": true,
+            "asCheckbox": false
+        }
+    ]
+}
+
+

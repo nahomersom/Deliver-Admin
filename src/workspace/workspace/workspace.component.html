@@ -1,0 +1,127 @@
+<meta name="viewport" content="width=device-width" />
+<div class="control-section">
+  <!-- sample level element  -->
+  <div class="col-lg-12 col-sm-12 col-md-12 center">
+    Click/Touch the button to view the sample
+  </div>
+  <!-- sample level element  -->
+  <div id="wrapper">
+    <div class="col-lg-12 col-sm-12 col-md-12" id="sidebar-section">
+      <div class="col-lg-12 col-sm-12 col-md-12">
+        <!--header-section  declaration -->
+        <div class="main-header" id="header-section">
+          <ul class="header-list">
+            <li
+              class="float-left header-style icon-menu"
+              id="hamburger"
+              (click)="openClick()"
+            ></li>
+            <li class="float-left header-style nav-pane">
+              <strong id="logo">EasyDelivery</strong>
+            </li>
+
+            <li class="header-style float-right">
+              <div ngbDropdown class="d-inline-block">
+                <!-- <i class="fas fa-bell"></i><small>1</small> -->
+                <div ngbDropdown class="d-inline-block" placement="bottom-right">
+                  <!-- <button class="btn btn-outline-primary" id="notification" ngbDropdownToggle><i class="fas fa-bell"> <span class="badge">{{notification}}</span></i></button> -->
+                  <div ngbDropdownMenu aria-labelledby="dropdownBasic1" id="notification-dropdown" class="notification-dropdown">
+                    <small style="color:grey; font-size:13px; padding-left:10px;">you have {{notification}} notifications</small>
+                    <div class="list-group" *ngFor="let order of orders;">
+                      <a href="#" class="list-group-item list-group-item-action flex-column">
+                    
+                        <div class="d-flex w-100 justify-content-between">
+          
+                          <small class="text-muted">{{order.orderContent}}</small>
+                          <small class="text-muted">{{order.date}}</small>
+                        </div>
+         
+                      </a>
+                    </div>
+                    <small class="d-flex justify-content-center" style="color:grey;">view all</small>
+                  </div>
+                </div>
+                <!-- To render DropDownButton with iconposition as 'top'. -->
+              
+                <button class="btn" id="dropdownBasic1" ngbDropdownToggle>
+                  hi, {{ security.securityObject?.full_name }}
+                </button>
+                <div ngbDropdownMenu aria-labelledby="dropdownBasic1" id="dropdownList">
+                  <button ngbDropdownItem (click)="onSelect(2)" class="drop_item">
+                    <span style="margin-right: 15px;">
+                      <i class="fas fa-user"></i>
+                    </span>
+                    <span>
+                      Update Profile
+                    </span>
+                  </button>
+                  <button ngbDropdownItem (click)="onSelect(1)" class="drop_item">
+                    <span style="margin-right: 15px;">
+                      <i class="fas fa-key"></i>
+                    </span>
+                    <span>
+                      Change Password
+                    </span>
+                  </button>
+                  <button ngbDropdownItem (click)="onSelect(3)" class="drop_item">
+                    <span style="margin-right: 15px;">
+                      <i class="fas fa-sign-out-alt"></i>
+                    </span>
+                    <span>
+                      Logout
+                    </span>
+                  </button>
+                </div>
+              </div>
+            </li>
+          </ul>
+        </div>
+        <!--end of header-section  declaration -->
+        <!-- sidebar element declaration -->
+        <div id="sidebar-holder">
+          <ejs-sidebar
+            id="sidebar-treeview"
+            class="dock-menu"
+            #sidebarTreeviewInstance
+            [width]="width"
+            [mediaQuery]="mediaQuery"
+            [target]="target"
+            [enableGestures]="false"
+          >
+            <div class="main-menu">
+              <div class="img">
+                <span>
+                  <img src="./assets/logo.png" />
+                </span>
+              </div>
+              <div class="mt-4">
+                <!-- Treevie element declaration -->
+                <ejs-treeview
+                  #tree
+                  id="main-treeview"
+                  (nodeClicked)="route($event)"
+                  [fields]="field"
+                  expandOn="Click"
+                ></ejs-treeview>
+              </div>
+            </div>
+          </ejs-sidebar>
+        </div>
+        <!-- end of sidebar element -->
+
+        <!-- main-content declaration -->
+        <div class="main-content" id="main-text">
+          <div class="sidebar-content">
+            <!-- <xng-breadcrumb></xng-breadcrumb> -->
+            <app-page-identity></app-page-identity>
+
+            <div class="d-flex justify-start contai">
+              <router-outlet></router-outlet>
+            </div>
+          </div>
+        </div>
+        <!-- end of main-content -->
+      </div>
+    </div>
+  </div>
+</div>

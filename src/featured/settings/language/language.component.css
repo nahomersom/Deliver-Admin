@@ -1,0 +1,67 @@
+.card{
+    margin-top: 20px;
+    min-width: 1470px !important;
+  }
+  @media only screen and (max-width: 768px) {
+    .card{
+      
+      min-width: 300px !important;
+    }
+  }
+  .row {
+    margin: 15px;
+  }
+  label{
+    font-size:12px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color:grey;
+  }
+
+
+.text{
+color: gray !important;
+font-size: 16px !important;
+}
+
+
+
+
+.has-item{
+overflow: scroll !important;
+margin-bottom: 10px !important;
+max-height: 500px !important;
+
+}
+
+.has-item::-webkit-scrollbar {
+display: none;
+}
+
+.error {
+    color: red;
+}
+/*for dropdown*/
+.invalid > span {
+  border: 1px solid red !important;
+}
+
+
+.valid > span{
+  border: 1px solid  #CED4DA !important;
+}
+
+.astriks{
+  color: red !important;
+  margin-left: 10px !important;
+}
+/* for TextBox */
+input.ng-invalid {
+  border: 1px solid red !important;
+}
+input.ng-valid {
+  border: 1px solid  #CED4DA !important;
+}
+.list-group li{
+  display: inline !important;
+}

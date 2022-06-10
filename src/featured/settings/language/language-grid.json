@@ -1,0 +1,52 @@
+{
+    "formPath": "ws/settings/language",
+    "dataApi": "util/language",
+    "deleteRowApi": "util/language/delete",
+    "pageName": "Language",
+    "grouped": true,
+    "groupBy": ["language"],
+    "showSearch": true,
+    "incomingCommand": [],
+    "showCollapseAndExpand": true,
+    "allowToolbar": true,
+    "showExcelExport": true,
+    "showPdfExport": true,
+    "showColumnChooser": true,
+    "showFilter": true,
+    "allowCheckbox": true,
+    "image_url": null,
+    "columns": [
+        {
+            "field": "language",
+            "headerText": "Language",
+            "textAlign": "left",
+            "width": 40,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "key",
+            "headerText": "Default Language (Key)",
+            "textAlign": "left",
+            "width": 80,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "value",
+            "headerText": "Translation",
+            "textAlign": "left",
+            "width": 80,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "created_at",
+            "headerText": "created At",
+            "textAlign": "left",
+            "width": 50,
+            "visible": true,
+            "asCheckbox": false
+        }
+    ]
+}

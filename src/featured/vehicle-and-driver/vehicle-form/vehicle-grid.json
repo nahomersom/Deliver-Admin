@@ -1,0 +1,77 @@
+{
+    "formPath": "ws/vehicle-and-driver/vehicle",
+    "dataApi": "vehicle/item",
+    "deleteRowApi": "vehicle/item/delete",
+    "pageName": "Item",
+    "grouped": false,
+    "groupBy": [],
+    "showSearch": true,
+    "incomingCommand": [],
+    "showCollapseAndExpand": true,
+    "allowToolbar": true,
+    "showExcelExport": true,
+    "showPdfExport": true,
+    "showColumnChooser": true,
+    "showFilter": true,
+    "allowCheckbox": true,
+    "image_url": "uploads/vehicle/item/",
+    "columns": [
+
+        {
+            "field": "vehicle_type",
+            "headerText": "Vehicle Type",
+            "textAlign": "left",
+            "width": 80,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "plate_number",
+            "headerText": "Plate Number",
+            "textAlign": "left",
+            "width": 80,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "chassis_number",
+            "headerText": "Chassis Number",
+            "textAlign": "left",
+            "width": 100,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "load_capacity",
+            "headerText": "Load Capacity",
+            "textAlign": "left",
+            "width": 80,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "model",
+            "headerText": "Model",
+            "textAlign": "left",
+            "width": 100,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "owner_full_name",
+            "headerText": "Owner full name",
+            "textAlign": "left",
+            "width": 120,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "driver",
+            "headerText": "driver",
+            "textAlign": "left",
+            "width": 120,
+            "visible": true,
+            "asCheckbox": false
+        }
+    ]
+}

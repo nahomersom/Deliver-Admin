@@ -1,0 +1,62 @@
+.card{
+    margin-top: 20px;
+  }
+  
+  label{
+    font-size:12px;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color:grey;
+  }
+  
+  .row {
+    margin: 15px;
+  }
+  
+  .buttons {
+    display: flex;
+  
+    gap: 20px;
+    margin-left: 5px;
+  }
+  button {
+    width: 80px;
+  
+  }
+
+  .buttons .save {
+    width: 100px;
+    background-color: #38a2f6;
+  }
+  .buttons .cancel {
+    width: 100px;
+    background-color: white;
+    color: black;
+  }
+  
+  h3{
+    margin-top: 15px;
+    text-align: center;
+    color: gray;
+  }
+  .invalid > span {
+    border: 1px solid red !important;
+  }
+  
+  
+  .valid > span{
+    border: 1px solid  #CED4DA !important;
+  }
+  
+  .astriks{
+    color: red !important;
+    margin-left: 10px !important;
+  }
+  /* for TextBox */
+  input.ng-invalid {
+    border: 1px solid red !important;
+  }
+  input.ng-valid {
+    border: 1px solid  #CED4DA !important;
+  }
+  

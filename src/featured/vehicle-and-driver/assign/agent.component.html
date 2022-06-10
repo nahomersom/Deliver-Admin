@@ -1,0 +1,247 @@
+
+  <div class="container" >
+    <div class="col-lg-8 col-md-12 col-sm-9 col-12">
+     <div class="card">
+
+     <div class="card-content">
+ 
+       <div class="row d-flex justify-content-space-evenly">
+         <div class="col-6">
+       <div class="wrap">
+         <span *ngIf="driverImage">
+           <img [src]="driverImage" id="main-profile-img" />
+         </span>
+ 
+         <span *ngIf="!driverImage">
+           <i
+             class="fa fa-user fa-5x"
+             aria-hidden="true"
+             id="main-profile-img"
+           ></i>
+         </span>
+ 
+       </div>
+       <p class="driver_name" style="margin-left: 50px;">{{driverName}}</p>
+     </div>
+     <div class="col-6">
+ 
+       <div class="wrap" style="float: right;">
+         <span *ngIf="vehicleImage">
+           <img [src]="vehicleImage" id="main-profile-img" />
+         </span>
+ 
+         <span *ngIf="!vehicleImage">
+           <i
+             class="fa fa-car fa-5x"
+             aria-hidden="true"
+             id="main-profile-img"
+           ></i>
+         </span>
+         <p>{{vehicleName}}</p>
+       </div>
+         
+ 
+       
+       </div>
+      
+       </div>
+     <form [formGroup]="assignAgentFormGroup">
+       <div class="row">
+         <div class="mb-4 col-md-6 col-sm-12 col-xs-12">
+       <div class="form-group">
+         <label>Select Driver</label>
+         <ejs-dropdownlist
+                 [ngClass]="{
+                  'invalid': service.getControl(
+                    assignAgentFormGroup,
+                    'driver_id'
+                  ).invalid,
+                  'valid': service.getControl(
+                    assignAgentFormGroup,
+                    'driver_id'
+                  ).valid
+                }"
+         formControlName="driver_id"
+         [dataSource]="driverData"
+         [fields]="fields"
+         [placeholder]="full_name??'select driver'"
+         [allowFiltering]='true'
+         (filtering)='load_drivers($event)'
+         (select) = 'getDriveDetail($event)'
+         id='ddlelement'  cssClass="e-outline"></ejs-dropdownlist>
+       </div>
+       </div>
+       <div class="mb-4 col-md-6 col-sm-12 col-xs-12">
+        <div class="form-group">
+          <label>Select Vehicle</label>
+          <ejs-dropdownlist
+          [ngClass]="{
+           'invalid': service.getControl(
+             assignAgentFormGroup,
+             'vehicle_id'
+           ).invalid,
+           'valid': service.getControl(
+             assignAgentFormGroup,
+             'vehicle_id'
+           ).valid
+         }"
+          formControlName="vehicle_id"
+          [dataSource]="vehicleList"
+          [fields]="fields"
+          (change) = 'loadVehicleDetail($event)'
+          placeholder="select vehicle"
+          id='ddlelement'  cssClass="e-outline"></ejs-dropdownlist>
+         
+        </div>
+        </div>
+       <div class="mb-4 col-md-6 col-sm-12 col-xs-12">
+       <div class="form-group">
+         <label>Vehicle Type</label>
+         <ejs-dropdownlist
+         [ngClass]="{
+          'invalid': service.getControl(
+            assignAgentFormGroup,
+            'vehicle_type_id'
+          ).invalid,
+          'valid': service.getControl(
+            assignAgentFormGroup,
+            'vehicle_type_id'
+          ).valid
+        }"
+         [dataSource]="vehicleTypeList"
+         [fields]="fields"
+         formControlName="vehicle_type_id"
+         (select) = 'load_vehicle($event.itemData?.value,null)'
+         placeholder="vehicle type"
+         cssClass="e-outline">
+        </ejs-dropdownlist>
+    
+       </div>
+     </div>
+
+ 
+ 
+   
+     <div class="col-md-6 col-sm-12 col-xs-12 ">
+       <div class="form-group">
+         <label for="start">Start date:</label>
+         <ejs-datepicker
+         [ngClass]="{
+          'invalid': service.getControl(
+            assignAgentFormGroup,
+            'start_date'
+          ).invalid,
+          'valid': service.getControl(
+            assignAgentFormGroup,
+            'start_date'
+          ).valid
+        }"
+         [value]='start_date'
+         placeholder="start date"
+         strictMode='true'
+         format='dd/MM/yyyy'
+         formControlName="start_date"
+         cssClass="e-outline"  [min]='start_date' (change)="openEndDate($event)"></ejs-datepicker>
+         <span class="e-error" *ngIf="assignAgentFormSubmitted && assignAgentFormGroup.controls.start_date.hasError('required')">
+             <span class="validation-error">*required*</span>
+           </span>
+       </div>
+     </div>
+     <div class="col-md-6 col-sm-12 col-xs-12 ">
+       <div class="form-group">
+         <label for="start">End date:</label>
+ 
+         <ejs-datepicker
+         [ngClass]="{
+          'invalid': service.getControl(
+            assignAgentFormGroup,
+            'end_date'
+          ).invalid,
+          'valid': service.getControl(
+            assignAgentFormGroup,
+            'end_date'
+          ).valid
+        }"
+         strictMode='true'
+         placeholder="end date"
+         format='dd/MM/yyyy'
+         formControlName="end_date"
+         cssClass="e-outline" [value]='end_date' [min]='start_date??minEndDateValue' [enabled]= 'toggle'></ejs-datepicker>
+         <span class="e-error" *ngIf="assignAgentFormSubmitted && assignAgentFormGroup.controls.end_date.hasError('required')">
+             <span class="validation-error">*required*</span>
+           </span>
+       </div>
+ 
+     </div>
+     <h3>Client Information</h3>
+     <div formGroupName="client" class="col-md-6 col-sm-12 col-xs-12">
+      <div class="form-group">
+        <label for="start"
+          >Name<small class="astriks">*</small></label
+        >
+        <div class="form-group">
+          <div class="e-input-group">
+            <input
+              class="e-input"
+              name="input"
+              formControlName="name"
+              type="text"
+              [ngClass]="{
+                invalid: service.getControl(
+                  assignAgentFormGroup,
+                  'client.name'
+                ).invalid,
+                valid: service.getControl(
+                  assignAgentFormGroup,
+                  'client.name'
+                ).valid
+              }"
+             
+              placeholder="Client Name"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+    <div formGroupName="client" class="col-md-6 col-sm-12 col-xs-12">
+      <div class="form-group">
+        <label for="start"
+          >Address<small class="astriks">*</small></label
+        >
+        <div class="form-group">
+          <div class="e-input-group">
+            <input
+              class="e-input"
+              name="input"
+              formControlName="address"
+              type="text"
+
+              [ngClass]="{
+                invalid: service.getControl(
+                  assignAgentFormGroup,
+                  'client.address'
+                ).invalid,
+                valid: service.getControl(
+                  assignAgentFormGroup,
+                  'client.address'
+                ).valid
+              }"
+             
+              placeholder="Client Address"
+            />
+          </div>
+        </div>
+      </div>
+    </div>
+   </div>
+ 
+   <hr />
+   <app-form-buttons (submit)="Submit($event)" style="margin-left: 20px !important;"></app-form-buttons>
+   <br />
+     </form>
+   </div>
+   </div>
+   </div>
+   </div>
+
+ 

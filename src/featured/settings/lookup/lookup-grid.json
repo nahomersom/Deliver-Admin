@@ -1,0 +1,44 @@
+{
+    "formPath": "ws/settings/lookup",
+    "dataApi": "Util/Lookup",
+    "deleteRowApi": "util/lookup/delete",
+    "pageName": "Lookup",
+    "grouped": true,
+    "groupBy": ["category","parent"],
+    "showSearch": true,
+    "incomingCommand": [],
+    "showCollapseAndExpand": true,
+    "allowToolbar": true,
+    "showExcelExport": true,
+    "showPdfExport": true,
+    "showColumnChooser": true,
+    "showFilter": true,
+    "allowCheckbox": true,
+    "image_url": null,
+    "columns": [
+        {
+            "field": "category",
+            "headerText": "Category",
+            "textAlign": "left",
+            "width": 80,
+            "visible": true,
+            "asCheckbox": true
+        },
+        {
+            "field": "parent",
+            "headerText": "Parent",
+            "textAlign": "left",
+            "width": 100,
+            "visible": true,
+            "asCheckbox": true
+        },
+        {
+            "field": "value",
+            "headerText": "Value",
+            "textAlign": "left",
+            "width": 100,
+            "visible": true,
+            "asCheckbox": true
+        }
+    ]
+}

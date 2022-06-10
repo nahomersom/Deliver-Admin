@@ -1,0 +1,149 @@
+.card{
+  margin-top: 20px;
+}
+.row {
+  margin: 15px;
+}
+label{
+  font-size:12px;
+  font-weight: bold;
+  margin-bottom: 10px;
+  color:grey;
+}
+h3{
+  text-align: center;
+  color:grey;
+}
+.e-upload{
+  border: none !important;
+}
+#owner-img,#vehicle-img {
+  width: 140px;
+  height: 140px;
+
+  border-style: solid;
+  border-color: #FFFFFF;
+  box-shadow: 0 0 8px 3px #B8B8B8;
+   position: relative;
+}
+
+.wrap {
+  position: relative;
+}
+.wrap .fa-user,.fa-car{
+
+  text-align: center;
+  color:#778bfd;
+  padding-top:25px;
+}
+.wrap #delete {
+
+font-weight: 900;
+
+position: absolute;
+width: 30px;
+height: 30px;
+border-radius: 50%;
+border: 1px solid grey;
+top: 125px;
+left: 102px;
+background: white;
+color: red;
+align-items: center;
+display: flex;
+justify-content: center;
+}
+.wrap #browseOwnerPhoto,.wrap #browseVehiclePhoto {
+
+  font-weight: 900;
+
+  position: absolute;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 1px solid grey;
+  top: 125px;
+  left: 10px;
+  background: white;
+  color: #778bfd;
+  align-items: center;
+  display: flex;
+  justify-content: center;
+  }
+
+  .e-upload{
+
+    visibility: hidden;
+    height: 30px;
+  }
+.buttons {
+  display: flex;
+
+  gap: 20px;
+  margin-left: 5px;
+}
+  .buttons .save {
+    width: 100px;
+    background-color: #778bfd;
+  }
+  .buttons .cancel {
+    width: 100px;
+    background-color: white;
+    color: black;
+  }
+  #photo-error{
+    padding-left: 396px;
+
+  }
+  #photo-error1{
+    padding-left: 16px;
+
+  }
+
+  .fa-file-pdf{
+    cursor: pointer;
+    color: #778bfd;
+  }
+  @media only screen and (max-width:840px){
+    #photo-error{
+      margin-left: -6px;
+  
+    }
+    #photo-error1{
+      margin-left: -6px;
+  
+    }
+  }
+  @media only screen and (max-width: 1023px) {
+    .owner_photo{
+      margin-left:-52px !important;
+    }
+     .vehicle{
+       margin-left:-60px !important;
+     }
+     .wrap{
+       margin-left:-90px !important;
+     }
+  }
+  /*for dropdown*/
+.invalid > span {
+  border: 1px solid red !important;
+}
+
+
+.valid > span{
+  border: 1px solid  #CED4DA !important;
+}
+
+.astriks{
+  color: red !important;
+  margin-left: 10px !important;
+}
+/* for TextBox */
+input.ng-invalid {
+  border: 1px solid red !important;
+}
+input.ng-valid {
+  border: 1px solid  #CED4DA !important;
+}
+

@@ -1,0 +1,77 @@
+{
+    "formPath": "ws/vehicle-and-driver/driver",
+    "dataApi": "user/driver",
+    "deleteRowApi": "user/driver/delete",
+    "pageName": "Driver",
+    "grouped": false,
+    "groupBy": [],
+    "showSearch": true,
+    "incomingCommand": [],
+    "showCollapseAndExpand": true,
+    "allowToolbar": true,
+    "showExcelExport": true,
+    "showPdfExport": true,
+    "showColumnChooser": true,
+    "showFilter": true,
+    "allowCheckbox": true,
+    "image_url": "uploads/user/profile_image/",
+    "columns": [
+
+        {
+            "field": "full_name",
+            "headerText": "Full Name",
+            "textAlign": "left",
+            "width": 130,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "email",
+            "headerText": "Email",
+            "textAlign": "left",
+            "width": 100,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "phone_number",
+            "headerText": "Phone",
+            "textAlign": "left",
+            "width": 50,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "region",
+            "headerText": "Region",
+            "textAlign": "left",
+            "width": 70,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "city",
+            "headerText": "City",
+            "textAlign": "left",
+            "width": 70,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "sub_city",
+            "headerText": "Sub City",
+            "textAlign": "left",
+            "width": 70,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "wereda",
+            "headerText": "Wereda",
+            "textAlign": "right",
+            "width": 50,
+            "visible": true,
+            "asCheckbox": false
+        }
+    ]
+}

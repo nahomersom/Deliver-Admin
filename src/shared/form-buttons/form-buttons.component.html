@@ -1,0 +1,27 @@
+<div class="row">
+    <div class="col-md-12 col-sm-12 col-xs-12">
+      <div class="buttons">
+            <button ejs-button cssClass="e-info" (click)="submitForm(true)" class="save mr-2" type="button"
+                [disabled]="op.sending" *ngIf="showSaveNew">
+                <span>
+                    <i class="fa fa-spinner fa-spin fa-fw" *ngIf="op.sending"></i>
+                </span>
+                <span *ngIf="!op.sending">
+                    Save & New
+                </span>
+            </button>
+            <button ejs-button cssClass="e-info" (click)="submitForm()" class="save" type="button"
+                [disabled]="op.sending">
+                <span>
+                    <i class="fa fa-spinner fa-spin fa-fw" *ngIf="op.sending"></i>
+                </span>
+                <span *ngIf="!op.sending">
+                    Save
+                </span>
+            </button>
+            <button ejs-button cssClass="e-outline" (click)="cancelForm()" class="cancel" type="button">
+                Cancel
+            </button>
+        </div>
+    </div>
+</div>

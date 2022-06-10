@@ -1,0 +1,155 @@
+
+.card{
+    /* border-radius:20px; */
+    margin-bottom: 15px !important;
+}
+#totalOrders{
+    /* background-color:#C3C3C5;
+    color: #fff; */
+    background: rgb(247,133,158);
+    background: radial-gradient(circle, rgba(247,133,158,1) 0%, rgba(248,152,144,1) 100%);
+    color: #fff;
+}
+#totalIncome{
+    /* background-color:#46d896; */
+    background: rgb(87,238,194);
+    background: linear-gradient(90deg, rgba(87,238,194,1) 0%, rgba(74,218,219,1) 76%);
+    color: #fff;
+
+}
+#totalCustomers{
+    /* background-color:#3596f3; */
+    background: rgb(155,190,254);
+background: linear-gradient(90deg, rgba(155,190,254,1) 0%, rgba(145,161,252,1) 76%);
+    color: #fff;
+}
+#totalPending{
+    /* background-color:#f8af06; */
+    background: rgb(250,193,138);
+background: linear-gradient(90deg, rgba(250,193,138,1) 0%, rgba(248,149,166,1) 76%);
+    color: #fff;
+}
+.fa {
+    font-size: 69px !important;
+}
+
+
+button{
+    width: 150px;
+    height:30px;
+    background-color: #778bfd;
+}
+.h5{
+    font-size:12px;
+}
+h3{
+    color:#fff;
+    font-size: 44px !important;
+}
+h4{
+text-align: center;
+color:#8f8f8f;
+}
+
+.btn{
+    color: #1c86c8 !important;
+}
+
+
+.row{
+    min-height: 125px !important;
+}
+
+.columen{
+    padding: 19px !important;
+    text-align: center;
+    margin-bottom: 20px !important;
+
+}
+
+
+.status {
+ 
+    display: inline-block;
+    width: 100px;
+    font-size:12px;
+}
+.pending {
+    border: 1px solid #FFC100;
+    color:#FFC100;
+    border-radius: 15px;
+    /* background-color: rgb(94, 165, 245); */
+
+}
+.assigned{
+    border: 1px solid burlywood;
+    color:burlywood;
+    border-radius: 15px;
+   
+}
+
+.accepted{
+    border: 1px solid #57B657;
+    color:#57B657;
+    border-radius: 15px;
+}
+
+.rejected{
+    border: 1px solid red;
+    color:red;
+    border-radius: 15px;
+}
+
+.start{
+  
+    border: 1px solid   #c0c0c0;
+    color:#c0c0c0;
+    border-radius: 15px;
+}
+
+.done{
+    border: 1px solid rgb(31, 219, 31);
+    color:rgb(31, 219, 31);
+    border-radius: 15px;
+   
+}
+
+.canceled{
+    border: 1px solid red;
+    color:red;
+    border-radius: 15px;
+}
+
+
+
+
+@media (max-width: 385px) {
+    .row{
+        min-height: 50px !important;
+    }
+    
+    .columen{
+        padding: 10px !important;
+        padding-left: 20px !important;
+        text-align: left;
+        margin-bottom: 20px !important;
+    
+    }
+
+    .fa {
+      
+        font-size: 50px !important;
+    }
+
+    .card{
+        width: 326px !important;
+    }
+}
+@media screen and (min-width: 400px) and (max-width: 550px) {
+    .card{
+        width: 380px !important;
+    }
+    ejs-accumulationchart{
+        width: 300px;
+    }
+}

@@ -1,0 +1,67 @@
+{
+    "formPath": "ws/vehicle-and-driver/assign",
+    "dataApi": "vehicle/order",
+    "deleteRowApi": "vehicle/order/delete",
+    "pageName": "Order",
+    "grouped": false,
+    "groupBy": [],
+    "showSearch": true,
+    "incomingCommand": [],
+    "showCollapseAndExpand": true,
+    "allowToolbar": false,
+    "showExcelExport": false,
+    "showPdfExport": false,
+    "showColumnChooser": true,
+    "showFilter": true,
+    "allowCheckbox": true,
+    "image_url": null,
+  
+    "columns": [
+        {
+            "field": "order_number",
+            "headerText": "Order no",
+            "textAlign": "left",
+            "width": 80,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "full_name",
+            "headerText": "Full Name",
+            "textAlign": "left",
+            "width": 120,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "phone_number",
+            "headerText": "phone number",
+            "textAlign": "left",
+            "width": 70,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "price",
+            "headerText": "Price",
+            "textAlign": "right",
+            "format":"N",
+            "type":"number",
+            "width": 60,
+            "visible": true,
+            "asCheckbox": false
+        },
+        {
+            "field": "order_date",
+            "headerText": "Date",
+            "textAlign": "left",
+            "format":"dd/MM/yyyy hh:mm a",
+            "type":"dateTime",
+            "width": 100,
+            "visible": true,
+            "asCheckbox": false
+        }
+    ]
+}
+
+
